@@ -1,0 +1,4 @@
+
+
+npx create-nextron-app my-app --example basic-lang-typescript
+
