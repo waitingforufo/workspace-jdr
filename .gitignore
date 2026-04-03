@@ -6,3 +6,9 @@
 
 
 **/.vs
+
+# PicViewer WinUI3 proj的自动生成
+**/C++/PicViewer/packages
+**/C++/PicViewer/x64
+**/C++/PicViewer/PicViewer/Generated Files
+**/C++/PicViewer/PicViewer/x64
