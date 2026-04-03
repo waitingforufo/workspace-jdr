@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="PicViewer/PicViewer.vcxproj" Id="3879602f-8ef3-4c91-b9de-ca34d1d8cf64">
+    <Deploy />
+  </Project>
+</Solution>
