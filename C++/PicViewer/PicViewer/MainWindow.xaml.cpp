@@ -4,6 +4,8 @@
 #include "MainWindow.g.cpp"
 #endif
 
+#include <winrt/Windows.Storage.Pickers.h>
+
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 
@@ -36,11 +38,31 @@ namespace winrt::PicViewer::implementation
         return hWnd;
     }
 
-    void MainWindow::Open_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+    winrt::Windows::Foundation::IAsyncAction MainWindow::Open_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
     {
+        // 各种picker也是 winrt::Windows～
+        auto folderPicker = winrt::Windows::Storage::Pickers::FolderPicker();
 
+        folderPicker.as<::IInitializeWithWindow>()->Initialize(getHwnd());
+
+        // 初期目录是图片文件夹
+        folderPicker.SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId::PicturesLibrary);
+
+        // 表示picker 
+        auto&& searchFolder = co_await folderPicker.PickSingleFolderAsync();
+
+        // 取消的话 co_return
+        if (searchFolder == nullptr) {
+            co_return;
+        }
     }
-
+    
+    /// <summary>
+    /// Exit菜单动作
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    /// <returns></returns>
     winrt::Windows::Foundation::IAsyncAction MainWindow::Exit_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
     {
         //ContentDialogはwinrt::Microsoft...となる。必要なのはXamlRoot
