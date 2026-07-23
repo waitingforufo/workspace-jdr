@@ -12,9 +12,15 @@
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="JDRCommonUtils\JDRWin32Util.cpp">
+      <Filter>JDRCommUtils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="JDRCommonUtils\JDRWin32Util.h">
+      <Filter>JDRCommUtils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
@@ -43,6 +49,9 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{d4338350-e8bd-4846-8301-53db220a5856}</UniqueIdentifier>
     </Filter>
+    <Filter Include="JDRCommUtils">
+      <UniqueIdentifier>{523e65ce-1a83-4d2c-9e27-08393959e744}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
@@ -51,9 +60,10 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <AppxManifest Include="Package.appxmanifest" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
+    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natstepfilter" />
   </ItemGroup>
 </Project>
