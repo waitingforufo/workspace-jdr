@@ -9,9 +9,9 @@ namespace JDRCommonUtils
 	{
 	public:
 		/// <summary>
-		/// 获取WinUI3窗口的HWND句柄
+		/// 获取WinUI3窗口类实例的HWND句柄
 		/// </summary>
-		/// <param name="window">WinUI3窗口类</param>
+		/// <param name="window">WinUI3窗口类实例</param>
 		/// <returns>HWND句柄</returns>
 		HWND GetWindowHwnd(winrt::Microsoft::UI::Xaml::Window const& window);
 	};
