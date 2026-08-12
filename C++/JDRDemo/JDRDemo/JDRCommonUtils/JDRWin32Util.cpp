@@ -8,7 +8,7 @@
 
 #include <microsoft.ui.xaml.window.h>  // IWindowNative接口定义
 
-namespace JDRCommonUtils
+namespace winrt::JDRDemo::JDRCommonUtils
 {
 	/// <summary>
 	/// 获取WinUI3窗口类实例的HWND句柄
