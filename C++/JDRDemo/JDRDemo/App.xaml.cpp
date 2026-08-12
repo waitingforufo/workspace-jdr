@@ -2,6 +2,8 @@
 #include "App.xaml.h"
 #include "MainWindow.xaml.h"
 
+#include "Common/JDRGlobal.h"
+
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 
@@ -37,6 +39,11 @@ namespace winrt::JDRDemo::implementation
     /// <param name="e">Details about the launch request and process.</param>
     void App::OnLaunched([[maybe_unused]] LaunchActivatedEventArgs const& e)
     {
+        // 应用启动时，主动获取一次全局实例，完成全局初始化
+        JDRDemo::Common::JDRGlobal* pGlobal = JDRDemo::Common::JDRGlobal::GetInstance();
+        pGlobal->SetGlobalSetting(100);  // 示例：初始化一些全局配置
+
+        // 创建并激活主窗口MainWindow.xaml
         window = make<MainWindow>();
         window.Activate();
     }

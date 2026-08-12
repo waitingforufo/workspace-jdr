@@ -15,11 +15,17 @@
     <ClCompile Include="JDRCommonUtils\JDRWin32Util.cpp">
       <Filter>JDRCommUtils</Filter>
     </ClCompile>
+    <ClCompile Include="Common\JDRGlobal.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="JDRCommonUtils\JDRWin32Util.h">
       <Filter>JDRCommUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\JDRGlobal.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +57,9 @@
     </Filter>
     <Filter Include="JDRCommUtils">
       <UniqueIdentifier>{523e65ce-1a83-4d2c-9e27-08393959e744}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{c61f417b-55c1-4fce-86cd-fa3a2aaabeb8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
