@@ -1,3 +1,7 @@
+///
+/// pch.h通常包含整个项目所需的WinRT投影头文件。
+/// 例如：针对winrt::Microsoft::UI::Xaml::Window， pch.h中一定包含了 #include <winrt/Microsoft.UI.Xaml.h>
+/// 
 #pragma once
 #include <windows.h>
 #include <unknwn.h>
