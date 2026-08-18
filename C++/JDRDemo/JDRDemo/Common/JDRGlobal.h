@@ -1,8 +1,8 @@
 #pragma once
 #include "pch.h"
 
-// 命名空间定义 winrt::<项目名称>::自定义空间名
-namespace winrt::JDRDemo::Common
+// 命名空间定义 <项目名称>::自定义空间名 注：自定义类的命名空间禁用 winrt::开头（自动生成的投影类型才用 winrt::开头）
+namespace JDRDemo::Common
 {
 	/// <summary>
 	/// 应用全局共同类（单例模式 Singleton Pattern) 
