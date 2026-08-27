@@ -20,8 +20,8 @@ namespace JDRDemo::Common
 	{
 	public:
 		// 禁止拷贝和赋值
-		JDRGlobal(const JDRGlobal&) = delete;
-		JDRGlobal& operator=(const JDRGlobal&) = delete;
+		JDRGlobal(const JDRGlobal&) = delete;            // 禁止拷贝
+		JDRGlobal& operator=(const JDRGlobal&) = delete; // 禁止赋值
 
 		/// <summary>
 		/// 获取JDRGlobal类实例的静态方法
