@@ -2,7 +2,7 @@
 
 #include "App.xaml.g.h"
 
-namespace winrt::JDRDemo::implementation
+namespace winrt::Bloom::implementation
 {
     struct App : AppT<App>
     {

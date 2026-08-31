@@ -19,8 +19,8 @@
     <CppWinRTRootNamespaceAutoMerge>true</CppWinRTRootNamespaceAutoMerge>
     <MinimalCoreWin>true</MinimalCoreWin>
     <ProjectGuid>{d4338350-e8bd-4846-8301-53db220a5856}</ProjectGuid>
-    <ProjectName>JDRDemo</ProjectName>
-    <RootNamespace>JDRDemo</RootNamespace>
+    <ProjectName>Bloom</ProjectName>
+    <RootNamespace>Bloom</RootNamespace>
     <!--
       $(TargetName) should be same as $(RootNamespace) so that the produced binaries (.exe/.pri/etc.)
       have a name that matches the .winmd

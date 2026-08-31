@@ -4,7 +4,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="JDRDemo/JDRDemo.vcxproj" Id="d4338350-e8bd-4846-8301-53db220a5856">
+  <Project Path="Bloom/Bloom.vcxproj" Id="d4338350-e8bd-4846-8301-53db220a5856">
     <Deploy />
   </Project>
 </Solution>

@@ -3,7 +3,7 @@
 
 #include "MainWindow.g.h"
 
-namespace winrt::JDRDemo::implementation
+namespace winrt::Bloom::implementation
 {
     struct MainWindow : MainWindowT<MainWindow>
     {
@@ -18,7 +18,7 @@ namespace winrt::JDRDemo::implementation
     };
 }
 
-namespace winrt::JDRDemo::factory_implementation
+namespace winrt::Bloom::factory_implementation
 {
     struct MainWindow : MainWindowT<MainWindow, implementation::MainWindow>
     {

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "JDRGlobal.h"
 
-namespace JDRDemo::Common
+namespace Bloom::Common
 {
 	/// <summary>
 	/// 获取JDRGlobal类实例的静态方法

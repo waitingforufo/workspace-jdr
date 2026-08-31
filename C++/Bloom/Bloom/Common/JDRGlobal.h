@@ -2,7 +2,7 @@
 #include "pch.h"
 
 // 命名空间定义 <项目名称>::自定义空间名 注：自定义类的命名空间禁用 winrt::开头（自动生成的投影类型才用 winrt::开头）
-namespace JDRDemo::Common
+namespace Bloom::Common
 {
 	/// <summary>
 	/// 应用全局共同类（单例模式 Singleton Pattern) 
@@ -12,7 +12,7 @@ namespace JDRDemo::Common
 	/// 
 	/// 使用方法：
 	///   应用启动时(App.xaml.cpp#OnLaunched())，主动获取一次全局实例，完成全局初始化 
-	///     winrt::JDRDemo::Common::JDRGlobal* pGlobal = winrt::JDRDemo::Common::JDRGlobal::GetInstance();
+	///     winrt::Bloom::Common::JDRGlobal* pGlobal = winrt::Bloom::Common::JDRGlobal::GetInstance();
 	///     pGlobal->SetGlobalSetting(100);  // 示例：初始化一些全局配置
 	/// 
 	/// </summary>

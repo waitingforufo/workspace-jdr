@@ -1,5 +1,5 @@
 ========================================================================
-    JDRDemo Project Overview
+    Bloom Project Overview
 ========================================================================
 
 This project demonstrates how to get started writing WinUI3 apps directly
