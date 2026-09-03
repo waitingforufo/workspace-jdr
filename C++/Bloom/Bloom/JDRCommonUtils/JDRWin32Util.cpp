@@ -12,6 +12,18 @@ namespace Bloom::JDRCommonUtils
 {
 	/// <summary>
 	/// 获取WinUI3窗口类实例的HWND句柄
+	/// 
+	/// e.g.:调用方法
+	///   // 在继承了 winrt::Microsoft::UI::Xaml::Window类的 XAML后台代码（CPP）里调用如下代码取得XAML（WinUI）的窗体对象（Window类）
+	///   auto currWindow = winrt::Microsoft::UI::Xaml::Window::Current();
+	///   if( !currWindow )
+	///   {
+	///     return;
+	///   }
+	/// 
+	///   // 取得HWND句柄
+	///   HWND curHWnd = JDRWin32Util::GetWindowHwnd( currWindow );
+	///   
 	/// </summary>
 	/// <param name="window">WinUI3窗口类实例</param>
 	/// <returns>HWND句柄</returns>
