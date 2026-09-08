@@ -40,7 +40,7 @@ namespace winrt::Bloom::implementation
     void App::OnLaunched([[maybe_unused]] LaunchActivatedEventArgs const& e)
     {
         // 应用启动时，主动获取一次全局实例，完成全局初始化
-        //JDRDemo::Common::JDRGlobal* pGlobal = JDRDemo::Common::JDRGlobal::GetInstance();  // 有的是winrt::JDRDemo，有的是 ::JDRDemo。 只有JDRDemo::xxx 啥也找不到
+        //上面 using winrt;了，所以不加 ::Bloom则成了 winrt::xxx
         ::Bloom::Common::JDRGlobal* pGlobal = ::Bloom::Common::JDRGlobal::GetInstance();
         pGlobal->SetGlobalSetting(100);  // 示例：初始化一些全局配置
 
