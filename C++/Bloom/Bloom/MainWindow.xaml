@@ -9,7 +9,16 @@
     mc:Ignorable="d"
     Title="Bloom">
 
-    <Grid>
+    <StackPanel Orientation="Vertical"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        
+        <!-- 绑定到代码隐藏类的 GlobalXaml属性 Mode=OneWay必须，因为默认是 OneTime -->
+        <TextBlock Text="{x:Bind GlobalXaml.Cnt, Mode=OneWay}"
+                   FontSize="24" />
 
-    </Grid>
+        <Button x:Name="myButton"
+                Content="Increment"
+                Click="myButton_Click" />
+    </StackPanel>
 </Window>

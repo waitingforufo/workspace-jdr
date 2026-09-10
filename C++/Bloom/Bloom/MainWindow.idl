@@ -1,9 +1,15 @@
+import "Common\\JDRGlobalXaml.idl";  // 引入单例类的 IDL（根据实际路径调整）
+
 namespace Bloom
 {
     [default_interface]
     runtimeclass MainWindow : Microsoft.UI.Xaml.Window
     {
         MainWindow();
+
+        // 必须在 IDL中声明，{x:Bind}才能识别
+        Bloom.Common.JDRGlobalXaml GlobalXaml{ get; }; // 全局共通单例类只有取得没有设定。取得单例类后调用单例类的成员
+
         Int32 MyProperty;
     }
 }

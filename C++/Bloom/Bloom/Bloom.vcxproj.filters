@@ -8,6 +8,9 @@
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
+    <Midl Include="Common\JDRGlobalXaml.idl">
+      <Filter>Common</Filter>
+    </Midl>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -18,6 +21,9 @@
     <ClCompile Include="Common\JDRGlobal.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="Common\JDRGlobalXaml.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -25,6 +31,9 @@
       <Filter>JDRCommUtils</Filter>
     </ClInclude>
     <ClInclude Include="Common\JDRGlobal.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\JDRGlobalXaml.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>

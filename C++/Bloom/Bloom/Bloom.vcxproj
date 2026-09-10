@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\JDRGlobal.h" />
+    <ClInclude Include="Common\JDRGlobalXaml.h" />
     <ClInclude Include="JDRCommonUtils\JDRWin32Util.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Common\JDRGlobal.cpp" />
+    <ClCompile Include="Common\JDRGlobalXaml.cpp" />
     <ClCompile Include="JDRCommonUtils\JDRWin32Util.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -152,6 +154,7 @@
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Midl Include="Common\JDRGlobalXaml.idl" />
     <Midl Include="MainWindow.idl">
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>

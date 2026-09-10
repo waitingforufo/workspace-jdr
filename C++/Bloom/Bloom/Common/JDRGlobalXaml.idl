@@ -1,0 +1,10 @@
+namespace Bloom.Common
+{
+	[default_interface]
+	runtimeclass JDRGlobalXaml : Microsoft.UI.Xaml.Data.INotifyPropertyChanged
+	{
+		static JDRGlobalXaml getInstance();
+
+		Int32 Cnt{ get; set; };
+	}
+}
