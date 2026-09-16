@@ -24,7 +24,7 @@ namespace winrt::Bloom::Common::implementation
 		{
 			m_cnt = value;
 			
-			// 触发书香变更通知，UI自动更新
+			// 触发属性变更通知，UI自动更新
 			m_propertyChanged(*this, Microsoft::UI::Xaml::Data::PropertyChangedEventArgs{ L"Cnt" });
 		}
 	}

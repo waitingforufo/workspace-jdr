@@ -5,7 +5,8 @@ namespace Bloom.Common
 	{
 		static JDRGlobalXaml getInstance();
 
-	    // 暴露给XAML的runtimeclass属性 >>>>>>>>>>>>>>>>>>>>>>>>>>>
+	    // 暴露给XAML的属性 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	    // 在这个runtimeclass定义里暴露的属性，才能在XAML里通过{x:Bind}绑定
 		Int32 Cnt{ get; set; };  // getter / setter 在XAML上可以显示/输入值
 
 		// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
