@@ -4,6 +4,9 @@
 
 namespace winrt::Bloom::Common::implementation
 {
+	/// <summary>
+	/// 全局共通单例类（属性可以在 XAML 里直接绑定）
+	/// </summary>
 	struct JDRGlobalXaml : JDRGlobalXamlT<JDRGlobalXaml>
 	{
 		JDRGlobalXaml() = default;
