@@ -1,0 +1,63 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- 只放会 随主题变化 的颜色/画刷 -->
+    <!-- 注意： 控件 Background / Foreground / BorderBrush 需要的是 Brush,不是 Color -->
+    
+    <ResourceDictionary.ThemeDictionaries>
+
+        <!-- 默认主题色-->
+        <ResourceDictionary x:Key="Default">
+            <SolidColorBrush x:Key="BloomBackgroundBrush" Color="#FF111318" />
+            
+            <SolidColorBrush x:Key="BloomForegroundBrush" Color="#FFECEFF4" />
+            <SolidColorBrush x:Key="BloomSubtleForegroundBrush" Color="#FF9AA3B2" />
+            
+            <SolidColorBrush x:Key="BloomPrimaryBrush" Color="#FF7AA2F7" />
+            
+            <SolidColorBrush x:Key="BloomCardBackgroundBrush" Color="#FF1B1F27" />
+            <SolidColorBrush x:Key="BloomCardBorderBrush" Color="#FF2A303B" />
+        </ResourceDictionary>
+
+        <!-- Light主题色-->
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="BloomBackgroundBrush" Color="#FFFFFFFF" />
+            
+            <SolidColorBrush x:Key="BloomForegroundBrush" Color="#FF1F232B" />
+            <SolidColorBrush x:Key="BloomSubtleForegroundBrush" Color="#FF5B6472" />
+            
+            <SolidColorBrush x:Key="BloomPrimaryBrush" Color="#FF2F6FED" />
+            
+            <SolidColorBrush x:Key="BloomCardBackgroundBrush" Color="#FFF7F8FA" />
+            <SolidColorBrush x:Key="BloomCardBorderBrush" Color="#FFE1E4EA" />
+        </ResourceDictionary>
+
+        <!-- Dark主题色-->
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush x:Key="BloomBackgroundBrush" Color="#FF111318" />
+            
+            <SolidColorBrush x:Key="BloomForegroundBrush" Color="#FFECEFF4" />
+            <SolidColorBrush x:Key="BloomSubtleForegroundBrush" Color="#FF9AA3B2" />
+            
+            <SolidColorBrush x:Key="BloomPrimaryBrush" Color="#FF7AA2F7" />
+            
+            <SolidColorBrush x:Key="BloomCardBackgroundBrush" Color="#FF1B1F27" />
+            <SolidColorBrush x:Key="BloomCardBorderBrush" Color="#FF2A303B" />
+        </ResourceDictionary>
+
+        <!-- HighContrast主题色-->
+        <ResourceDictionary x:Key="HighContrast">
+            <SolidColorBrush x:Key="BloomBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
+            
+            <SolidColorBrush x:Key="BloomForegroundBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
+            <SolidColorBrush x:Key="BloomSubtleForegroundBrush" Color="{ThemeResource SystemColorGrayTextColor}" />
+            
+            <SolidColorBrush x:Key="BloomPrimaryBrush" Color="{ThemeResource SystemColorHighlightColor}" />
+            
+            <SolidColorBrush x:Key="BloomCardBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
+            <SolidColorBrush x:Key="BloomCardBorderBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
+        </ResourceDictionary>
+
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

@@ -20,5 +20,13 @@
         <Button x:Name="myButton"
                 Content="Increment"
                 Click="myButton_Click" />
+        
+        <!-- APP级别资源使用 -->
+        <TextBlock Text="BloomTitleTextBlockStyle test"
+                   Style="{StaticResource BloomTitleTextBlockStyle}" />
+        <TextBlock Text="全局资源来自 App.xaml 合并字典 BloomBodyTextBlockStyle"
+                   Style="{StaticResource BloomBodyTextBlockStyle}" />
+        <Button Content="确定 - BloomPrimaryButtonStyle"
+                Style="{StaticResource BloomPrimaryButtonStyle}" />
     </StackPanel>
 </Window>

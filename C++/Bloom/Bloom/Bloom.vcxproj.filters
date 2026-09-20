@@ -5,6 +5,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml" />
+    <Page Include="Common\Res\Themes\ThemeResources.xaml">
+      <Filter>Common\Res\Themes</Filter>
+    </Page>
+    <Page Include="Common\Res\Styles\BrandTokens.xaml">
+      <Filter>Common\Res\Styles</Filter>
+    </Page>
+    <Page Include="Common\Res\Styles\TextStyles.xaml">
+      <Filter>Common\Res\Styles</Filter>
+    </Page>
+    <Page Include="Common\Res\Styles\ControlStyles.xaml">
+      <Filter>Common\Res\Styles</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
@@ -69,6 +81,15 @@
     </Filter>
     <Filter Include="Common">
       <UniqueIdentifier>{c61f417b-55c1-4fce-86cd-fa3a2aaabeb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Res">
+      <UniqueIdentifier>{0344a22c-eed3-44fb-ae16-2af0bd57f3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Res\Themes">
+      <UniqueIdentifier>{5030fa5c-6456-4f49-b86f-46b888db15fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Res\Styles">
+      <UniqueIdentifier>{1594f55a-48a5-4c5c-a6d8-af75cbbd606a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

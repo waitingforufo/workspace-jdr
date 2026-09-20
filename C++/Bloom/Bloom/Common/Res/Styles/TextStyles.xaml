@@ -1,0 +1,39 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 命名文本样式 -->
+    <!-- 推荐先写 命名Style， 不要一上来就定义全局隐式 TextBlock Style，否则会波及不希望影响的地方 -->
+    
+    <!-- 用法：
+           <TextBlock Text="Title comment"
+                      Style="{StaticResource BloomTitleTextBlockStyle}" />
+    -->
+
+    <!-- Title用 TextBlock -->
+    <Style x:Key="BloomTitleTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource BloomBodyFontFamily}" />
+        <Setter Property="FontSize" Value="{StaticResource BloomTitleFontSize}" />
+        
+        <Setter Property="Foreground" Value="{ThemeResource BloomForegroundBrush}" />
+    </Style>
+
+    <!-- Body用 TextBlock -->
+    <Style x:Key="BloomBodyTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource BloomBodyFontFamily}" />
+
+        <Setter Property="FontSize" Value="{StaticResource BloomBodyFontSize}" />
+        <Setter Property="Foreground" Value="{ThemeResource BloomForegroundBrush}" />
+
+        <Setter Property="TextWrapping" Value="WrapWholeWords" />
+    </Style>
+    
+    <!-- Caption用 TextBlock -->
+    <Style x:Key="BloomCaptionTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource BloomBodyFontFamily}" />
+
+        <Setter Property="FontSize" Value="{StaticResource BloomCaptionFontSize}" />
+        <Setter Property="Foreground" Value="{ThemeResource BloomSubtleForegroundBrush}" />
+    </Style>
+    
+</ResourceDictionary>

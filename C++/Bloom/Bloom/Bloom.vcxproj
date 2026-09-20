@@ -136,6 +136,18 @@
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
+    <Page Include="Common\Res\Styles\BrandTokens.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Res\Styles\ControlStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Res\Styles\TextStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Common\Res\Themes\ThemeResources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml" />
   </ItemGroup>
   <ItemGroup>

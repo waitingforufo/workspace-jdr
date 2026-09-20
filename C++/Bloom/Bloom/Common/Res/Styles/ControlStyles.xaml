@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 可选：命名控件样式；谨慎用全局隐式 Style -->
+    <!-- 对 Button 这类控件，建议做命名 Style；要改按钮外观再基于默认样式派生 -->
+    <!-- {ThemeResource BloomPrimaryBrush}: 按照主题自动切换 -->
+    
+    <!--
+      命名Style。 
+      用法：
+        <Button Content="确定"
+                Style="{StaticResource BloomPrimaryButtonStyle}" />
+    -->
+    <Style x:Key="BloomPrimaryButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource DefaultButtonStyle}">
+
+        <Setter Property="Background" Value="{ThemeResource BloomPrimaryBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource BloomForegroundBrush}" />
+        <Setter Property="CornerRadius" Value="{StaticResource BloomControlCornerRadius}" />
+        <Setter Property="Padding" Value="16,8,16,8" />
+    </Style>
+</ResourceDictionary>

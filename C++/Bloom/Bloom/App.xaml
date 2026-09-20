@@ -1,16 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    ■几个关键点:
+      ·资源查找顺序： 大致是 元素自身 -> 父容器 -> 页面 -> App.xaml； 局部同名 key 会覆盖全局。起名加 Bloom前缀（BloomXXXX)可避免撞 WinUI内置key。
+      ·会随 Light / Dark / 高对比度 变化的画刷，定义到 ThemeDictionaries ， 引用时用 {ThemeResource}；间距，圆角，字号，字体这类固定值用 {StaticResources}。
+      ·Foreground / Background / BorderBrush 要定义 SolidColorBrush；只有属性真的要求 Color时才存 Color。
+      ·保留 <XamlControlsResources ... />很关键； 如果控件级覆盖，合并顺序可能影响同名key的解析，建议实测，并优先用自有 key的命名Style。
+      ·不建议一开始全局隐式重写 TextBlock 或 Button；等你明确要 “全APP所有实例都变” 时再考虑，且要检查控件模板内部 TextBlock / ContentPresenter 的副作用。
+-->
+
 <Application
     x:Class="Bloom.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Bloom">
+    
     <Application.Resources>
+        
+        <!-- 
+          ■APP级别资源使用方法： e.g.: MainWindow.xaml
+        
+            <TextBlock Text="BloomTitleTextBlockStyle test"
+                       Style="{StaticResource BloomTitleTextBlockStyle}" />
+        
+            <TextBlock Text="全局资源来自 App.xaml 合并字典 BloomBodyTextBlockStyle"
+                       Style="{StaticResource BloomBodyTextBlockStyle}" />
+        
+            <Button Content="确定 - BloomPrimaryButtonStyle"
+                    Style="{StaticResource BloomPrimaryButtonStyle}" />
+        -->
+        
         <ResourceDictionary>
+
+            <!-- 合并主题： 将指定资源文件全部合并进来，再任意XAML里直接使用（APP级别）-->
             <ResourceDictionary.MergedDictionaries>
+                <!-- 必须保留。否则 WinUI控件默认样式/主题资源不完整-->
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+
                 <!-- Other merged dictionaries here -->
+
+                <!-- 主题色：Light / Dark / HighContrast 会切换  Source="ms-appx:///Common/Res/Themes/ThemeResources.xaml" -->
+                <ResourceDictionary Source="/Common/Res/Themes/ThemeResources.xaml" />
+
+                <!-- 固定设计令牌： 间距，圆角， 字号， 字体 -->
+                <ResourceDictionary Source="/Common/Res/Styles/BrandTokens.xaml" />
+
+                <!-- 命名文本样式 -->
+                <ResourceDictionary Source="/Common/Res/Styles/TextStyles.xaml" />
+
+                <!-- 可选：命名控件样式；谨慎用全局隐式 Style -->
+                <ResourceDictionary Source="/Common/Res/Styles/ControlStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <!-- Other app resources here -->
+
+            <!-- Other app resources here 定义APP级别的设定值 e.g.: JDRDBLVAL=99 -->
+            <x:Double x:Key="JDRDBLVAL">99</x:Double>
+
         </ResourceDictionary>
     </Application.Resources>
+    
 </Application>
