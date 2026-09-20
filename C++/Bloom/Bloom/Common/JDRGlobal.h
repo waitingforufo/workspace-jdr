@@ -12,7 +12,7 @@ namespace Bloom::Common
 	/// 
 	/// 使用方法：
 	///   应用启动时(App.xaml.cpp#OnLaunched())，主动获取一次全局实例，完成全局初始化 
-	///     winrt::Bloom::Common::JDRGlobal* pGlobal = winrt::Bloom::Common::JDRGlobal::GetInstance();
+	///     Bloom::Common::JDRGlobal* pGlobal = Bloom::Common::JDRGlobal::GetInstance();
 	///     pGlobal->SetGlobalSetting(100);  // 示例：初始化一些全局配置
 	/// 
 	/// </summary>

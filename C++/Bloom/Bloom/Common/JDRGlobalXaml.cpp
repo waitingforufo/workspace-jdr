@@ -7,12 +7,13 @@ namespace winrt::Bloom::Common::implementation
 	Bloom::Common::JDRGlobalXaml JDRGlobalXaml::getInstance()
 	{
 		// C++11起 static 局部变量初始化是线程安全的
-		static Bloom::Common::JDRGlobalXaml instance{                   // 返回的是投影类型 Bloom::Commom::JDRGlobalXaml
-			winrt::make<Bloom::Common::implementation::JDRGlobalXaml>()  // Bloom::Common::implementation下的实现类
+		// 注意：返回的是投影类型 Bloom::Commom::JDRGlobalXaml， 不是winrt::Bloom::Common::implementtion下的实现类型
+		static Bloom::Common::JDRGlobalXaml instance{                    
+			winrt::make<Bloom::Common::implementation::JDRGlobalXaml>()  // 注意：这里是 Bloom::Common::implementation下的实现类
 		};
 		return instance;
 	}
-
+	
 	int32_t JDRGlobalXaml::Cnt() const
 	{
 		return m_cnt;
