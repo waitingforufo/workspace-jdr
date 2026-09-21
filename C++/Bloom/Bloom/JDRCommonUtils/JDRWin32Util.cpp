@@ -7,6 +7,9 @@
 #include "JDRWin32Util.h"
 
 #include <microsoft.ui.xaml.window.h>  // IWindowNative接口定义
+#include <ShObjIdl.h>
+#include <winrt/Microsoft.UI.Interop.h>
+#include <winrt/Microsoft.UI.Windowing.h>
 
 namespace Bloom::JDRCommonUtils
 {
@@ -19,6 +22,28 @@ namespace Bloom::JDRCommonUtils
 		windowNative->get_WindowHandle(&hWnd);
 
 		return hWnd;
+	}
+
+	void JDRWin32Util::SetStartupPlacement(winrt::Microsoft::UI::Xaml::Window const& window,
+		                                   int32_t posX,
+		                                   int32_t posY,
+		                                   int32_t width,
+		                                   int32_t height)
+	{
+		HWND hWnd{};
+		hWnd = GetWindowHwnd(window);
+
+		auto windowId = winrt::Microsoft::UI::GetWindowIdFromWindow(hWnd);
+		auto appWindow = winrt::Microsoft::UI::Windowing::AppWindow::GetFromWindowId(windowId);
+
+		winrt::Windows::Graphics::PointInt32 pos{ posX, posY };
+		
+		winrt::Windows::Graphics::SizeInt32 size{ width, height };
+
+		appWindow.Move(pos);
+		appWindow.Resize(size);
+
+		return;
 	}
 
 }//end namespace

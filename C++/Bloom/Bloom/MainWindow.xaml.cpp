@@ -4,6 +4,8 @@
 #include "MainWindow.g.cpp"
 #endif
 
+#include "JDRCommonUtils/JDRWin32Util.h"
+
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 
@@ -15,6 +17,8 @@ namespace winrt::Bloom::implementation
     MainWindow::MainWindow()
     {
         InitializeComponent();  // 初始化XAML控件
+
+        ::Bloom::JDRCommonUtils::JDRWin32Util::SetStartupPlacement( *this, 240, 160, 600, 400);
     }
 
     /// <summary>
