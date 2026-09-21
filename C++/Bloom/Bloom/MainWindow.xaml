@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    ■关键点：
+      · 注意 WinUI3里，MainWindow.xaml 的跟是 Microsoft.UI.Xaml.Window，Window本身没有 Resources 属性，
+        所以，下面这种是错误/不能用的：
+          <Window.Resources>
+              ...                  <- 错误，Window不是 FrameworkElement,没有 Resources
+          </Window.Resources>
+      · 正确的做法：
+          把资源定义在 Window里面的 跟布局元素上，例如模板默认的 Grid。
+          资源只对这个 “根元素及其子树可见”； 其他 Window / Page 想用，仍应该放在 App.xaml或共享字典里。
+    ■几个要点
+      · 查找顺序： 控件自身 -> 父容器 -> RootGrid.Resources -> App.xaml 。
+                 所以如果这里也定义同名key，会在这个 Grid 子树内覆盖全局同名资源。
+      · {StaticResource} 适合固定值： 字号，间距， 圆角， 本窗口固定色。
+        {ThemeResource}  适合随主题变化的画刷；
+                         本例里局部 MainWindowCardBrush 引用了全局 BloomCardBackgrounBrush.Color， 属性复杂时建议直接全局引用画刷更稳。
+      · 建议资源放前面，使用代码放后面，避免前向引用歧义； 这是 WinUI/UWP习惯， 不是WPF的DynamicResource思路。
+      · 如果 RootGrid 里有 <Frame x:Name="RootFrame" />，RootGrid.Resources 对 Frame 导航进去的 Page通常也可见； 除非 Page或更内层元素用同名 key 覆盖。
+      · 纯 XAML 资源不需要改 C++/WinRT头文件；
+        MainWindow.xaml的 x:Class="Bloom.MainWindow" 仍对应现有 MainWindow.idl/.h/.cpp 。
+-->
 <Window
     x:Class="Bloom.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -12,6 +33,56 @@
     <StackPanel Orientation="Vertical"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
+
+        <!-- 
+          ■本窗口级别资源定义 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        -->
+        <StackPanel.Resources>
+            <ResourceDictionary>
+                
+                <!-- 本窗口局部固定属性值 -->
+                <x:Double x:Key="MainwindowSpacing">10</x:Double>
+                
+                <FontFamily x:Key="MainWindowFontFamily">Segoe UI Variable Display</FontFamily>
+                
+                <Thickness x:Key="MainWindowCardPadding">16,12,16,12</Thickness>
+                <Thickness x:Key="MainWindowSectionMargin">0,0,0,16</Thickness>
+
+                <CornerRadius x:Key="MainWindowCardCornerRadius">10</CornerRadius>
+                <CornerRadius x:Key="MainWindowButtonCornerRadius">6</CornerRadius>
+                
+                <!-- 本窗口局部画刷 -->
+                <SolidColorBrush x:Key="MainWindowAccentBrush" Color="#FF6C5CE7" />
+                <SolidColorBrush x:Key="MainWindowCardBrush" Color="{ThemeResource BloomCardBackgroundBrush}" />
+                
+                <!-- 本窗口命名样式，可继续引用全局资源 -->
+                <Style x:Key="MainWindowTitleStyle" TargetType="TextBlock">
+                    <Setter Property="FontFamily" Value="{StaticResource MainWindowFontFamily}" />
+                    <Setter Property="FontSize" Value="{StaticResource BloomTitleFontSize}" />
+                    <Setter Property="Foreground" Value="{ThemeResource BloomForegroundBrush}" />
+                </Style>
+
+                <Style x:Key="MainWindowBodyStyle" TargetType="TextBlock">
+                    <Setter Property="FontFamily" Value="{StaticResource BloomBodyFontFamily}" />
+                    <Setter Property="FontSize" Value="{StaticResource BloomBodyFontSize}" />
+                    <Setter Property="Foreground" Value="{ThemeResource BloomForegroundBrush}" />
+
+                    <Setter Property="TextWrapping" Value="WrapWholeWords" />
+                </Style>
+
+                <Style x:Key="MainWindowPrimaryButtonStyle"
+                       TargetType="Button"
+                       BasedOn="{StaticResource DefaultButtonStyle}">
+
+                    <Setter Property="Background" Value="{StaticResource MainWindowAccentBrush}" />
+                    <Setter Property="CornerRadius" Value="{StaticResource MainWindowButtonCornerRadius}" />
+                    <Setter Property="Padding" Value="16,8,16,8" />
+                </Style>
+                
+            </ResourceDictionary>
+        </StackPanel.Resources>
+        <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        -->
         
         <!-- 绑定到代码隐藏类的 GlobalXaml属性 Mode=OneWay必须，因为默认是 OneTime -->
         <TextBlock Text="{x:Bind GlobalXaml.Cnt, Mode=OneWay}"
@@ -28,5 +99,24 @@
                    Style="{StaticResource BloomBodyTextBlockStyle}" />
         <Button Content="确定 - BloomPrimaryButtonStyle"
                 Style="{StaticResource BloomPrimaryButtonStyle}" />
+        
+        <!-- 本窗口级别资源使用 -->
+        <TextBlock Text="TextBlock - MainWindowTitleStyle" 
+                   Style="{StaticResource MainWindowTitleStyle}" />
+
+        <TextBlock Text="这些资源只定义在MainWindow.xaml里，只能自己用 - MainWindowBodyStyle" 
+                   Style="{StaticResource MainWindowBodyStyle}" />
+
+        <Border Padding="{StaticResource MainWindowCardPadding}"
+                CornerRadius="{StaticResource MainWindowCardCornerRadius}"
+                Background="{StaticResource MainWindowCardBrush}">
+            <StackPanel Spacing="8">
+                <TextBlock Text="局部卡片 - MainWindowBodyStyle"
+                           Style="{StaticResource MainWindowBodyStyle}" />
+
+                <Button Content="局部按钮 - MainWindowPrimaryButtonStyle"
+                        Style="{StaticResource MainWindowPrimaryButtonStyle}" />
+            </StackPanel>
+        </Border>
     </StackPanel>
 </Window>
