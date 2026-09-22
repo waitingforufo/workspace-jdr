@@ -27,6 +27,26 @@
         
             <Button Content="确定 - BloomPrimaryButtonStyle"
                     Style="{StaticResource BloomPrimaryButtonStyle}" />
+        
+          ■在后台代码取得APP界别资源里定义的值
+            ※WinUI3里不管 App 级还是某个 XAML 跟元素上的资源，本质都是 Microsoft::UI::Xaml::ResourceDictionary；
+              后台代码直接查这个字典即可。
+              
+              · 区别：
+                  XAML里的 {StaticResource} / {ThemeResource} 会自动沿视觉书向上找；
+                  后台代码点 .Resources() 只会拿到 “当前这个元素”的字典，不会自动帮你找父级/APP。
+        
+            // 取得APP级别资源
+            auto appResources = winrt::Microsoft::UI::Xaml::Application::Current().Resources();
+
+            // x:Double -> double  ※建议先检查key是否存在： appResources.HasKey()
+            winrt::Windows::Foundation::IInspectable sizeObj = appResources.Lookup(winrt::box_value(L"BloomBodyFontSize"));
+            double bodyFontSize = winrt::unbox_value<double>(sizeObj);
+
+            // SolidColorBrush
+            auto brushObj = appResources.Lookup(winrt::box_value(L"BloomPrimaryBrush"));
+            auto primaryBrush = brushObj.as<winrt::Microsoft::UI::Xaml::Media::SolidColorBrush>();
+        
         -->
         
         <ResourceDictionary>

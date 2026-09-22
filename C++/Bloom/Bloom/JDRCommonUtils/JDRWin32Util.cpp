@@ -46,4 +46,35 @@ namespace Bloom::JDRCommonUtils
 		return;
 	}
 
+	winrt::Windows::Foundation::IInspectable JDRWin32Util::TryFindResource(
+		winrt::Microsoft::UI::Xaml::FrameworkElement const& startElement,
+		winrt::hstring const& resourceKey)
+	{
+		auto current = startElement;
+
+		while (current)
+		{
+			auto dict = current.Resources();
+			if (dict.HasKey(winrt::box_value(resourceKey)))
+			{
+				return dict.Lookup(winrt::box_value(resourceKey));
+			}//end if
+
+			// 当前元素里没有指定资源
+			auto parent = winrt::Microsoft::UI::Xaml::Media::VisualTreeHelper::GetParent(current);
+			current = parent ? parent.try_as<winrt::Microsoft::UI::Xaml::FrameworkElement>() : nullptr;
+		}//end while
+
+		// 从当前元素向上查找都无的时候
+		// 查找App级别资源
+
+		auto appDict = winrt::Microsoft::UI::Xaml::Application::Current().Resources();
+		if (appDict.HasKey(winrt::box_value(resourceKey)))
+		{
+			return appDict.Lookup(winrt::box_value(resourceKey));
+		}//end if
+
+		return nullptr;
+	}
+
 }//end namespace

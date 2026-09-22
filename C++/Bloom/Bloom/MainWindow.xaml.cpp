@@ -45,5 +45,23 @@ namespace winrt::Bloom::implementation
     {
         auto jdrGlobalXaml = Bloom::Common::JDRGlobalXaml::getInstance();
         jdrGlobalXaml.Cnt(jdrGlobalXaml.Cnt() + 1);  // 修改属性，UI自动更新
+
+        // 取得APP级别资源
+        auto appResources = winrt::Microsoft::UI::Xaml::Application::Current().Resources();
+
+        // x:Double -> double
+        winrt::Windows::Foundation::IInspectable sizeObj = appResources.Lookup(winrt::box_value(L"BloomBodyFontSize"));
+        double bodyFontSize = winrt::unbox_value<double>(sizeObj);
+
+        // SolidColorBrush
+        auto brushObj = appResources.Lookup(winrt::box_value(L"BloomPrimaryBrush"));
+        auto primaryBrush = brushObj.as<winrt::Microsoft::UI::Xaml::Media::SolidColorBrush>();
+
+        // 向上查找资源例子
+        auto resObj = ::Bloom::JDRCommonUtils::JDRWin32Util::TryFindResource(myButton(), L"MainWindowCardPadding");
+        if (resObj)
+        {
+            auto padding = winrt::unbox_value<winrt::Microsoft::UI::Xaml::Thickness>(resObj);
+        }
     }
 }
