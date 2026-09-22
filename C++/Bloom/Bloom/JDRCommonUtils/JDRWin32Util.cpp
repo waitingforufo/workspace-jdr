@@ -24,11 +24,12 @@ namespace Bloom::JDRCommonUtils
 		return hWnd;
 	}
 
-	void JDRWin32Util::SetStartupPlacement(winrt::Microsoft::UI::Xaml::Window const& window,
-		                                   int32_t posX,
-		                                   int32_t posY,
-		                                   int32_t width,
-		                                   int32_t height)
+	void JDRWin32Util::SetStartupPlacement(
+		winrt::Microsoft::UI::Xaml::Window const& window,
+		int32_t posX,
+		int32_t posY,
+		int32_t width,
+		int32_t height)
 	{
 		HWND hWnd{};
 		hWnd = GetWindowHwnd(window);

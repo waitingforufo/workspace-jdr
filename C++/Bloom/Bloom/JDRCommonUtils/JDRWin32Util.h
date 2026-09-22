@@ -62,11 +62,12 @@ namespace Bloom::JDRCommonUtils
 		/// <param name="posY">启动位置Y坐标</param>
 		/// <param name="width">窗口宽度</param>
 		/// <param name="height">窗口高度</param>
-		static void SetStartupPlacement(winrt::Microsoft::UI::Xaml::Window const& window, 
-			                     int32_t posX, 
-			                     int32_t posY, 
-			                     int32_t width, 
-			                     int32_t height);
+		static void SetStartupPlacement(
+			winrt::Microsoft::UI::Xaml::Window const& window, 
+			int32_t posX, 
+			int32_t posY, 
+			int32_t width, 
+			int32_t height);
 
 		/// <summary>
 		/// 从指定元素的资源开始向上查找指定key的资源定义
@@ -86,7 +87,7 @@ namespace Bloom::JDRCommonUtils
 		/// </summary>
 		/// <param name="startElement">查找资源的起点元素（指定XAML里的某个元素， 必须是 FrameworkElement类型）</param>
 		/// <param name="resourceKey">查找的资源key</param>
-		/// <returns></returns>
+		/// <returns>nullptr:查找失败； 以外：指定key的资源对象</returns>
 		static winrt::Windows::Foundation::IInspectable TryFindResource(
 			winrt::Microsoft::UI::Xaml::FrameworkElement const& startElement,
 			winrt::hstring const& resourceKey);
