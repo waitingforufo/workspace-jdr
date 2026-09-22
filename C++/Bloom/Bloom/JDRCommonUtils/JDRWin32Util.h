@@ -67,6 +67,30 @@ namespace Bloom::JDRCommonUtils
 			                     int32_t posY, 
 			                     int32_t width, 
 			                     int32_t height);
+
+		/// <summary>
+		/// 从指定元素的资源开始向上查找指定key的资源定义
+		/// ※从一个控件开始向父级，再向App找资源，可以自己走视觉树。
+		/// 
+		/// <para>
+		///   e.g.: 调用方法
+		/// </para>
+		/// <para>
+		///   // 向上查找资源例子 例子：XAML里定义了 x:Name="myButton"
+		///   auto resObj = ::Bloom::JDRCommonUtils::JDRWin32Util::TryFindResource(myButton(), L"MainWindowCardPadding");
+		///   if (resObj)
+		///   {
+		///       auto padding = winrt::unbox_value<winrt::Microsoft::UI::Xaml::Thickness>(resObj);
+		///   }
+		/// </para>
+		/// </summary>
+		/// <param name="startElement">查找资源的起点元素（指定XAML里的某个元素， 必须是 FrameworkElement类型）</param>
+		/// <param name="resourceKey">查找的资源key</param>
+		/// <returns></returns>
+		static winrt::Windows::Foundation::IInspectable TryFindResource(
+			winrt::Microsoft::UI::Xaml::FrameworkElement const& startElement,
+			winrt::hstring const& resourceKey);
+
 	};
 
 }// end namespace

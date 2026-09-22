@@ -19,6 +19,20 @@
       · 如果 RootGrid 里有 <Frame x:Name="RootFrame" />，RootGrid.Resources 对 Frame 导航进去的 Page通常也可见； 除非 Page或更内层元素用同名 key 覆盖。
       · 纯 XAML 资源不需要改 C++/WinRT头文件；
         MainWindow.xaml的 x:Class="Bloom.MainWindow" 仍对应现有 MainWindow.idl/.h/.cpp 。
+    
+    ■在后台代码里取得资源值的方法
+      ① 在xaml里给跟元素定义名字
+           <StackPanel x:Name="RootEle"> ... </StackPanel>
+    
+      ② 在后台代码里得到字典
+          auto localResources = RootEle().Resources();
+    
+          auto brush = localResources.LookUp(winrt_boxvalue(L"MainWindowAccentBrush")).as<SolidColorBrush>();
+          bodyTextBlock().Foreground( brush );
+    
+          auto styleObj = localResources.Lookup(winrt::box_value(L"MainwindowBodyTextBlockStyle"));
+          auto style = styleObj.as<Style>
+          BodyTextBlock().Style( style );
 -->
 <Window
     x:Class="Bloom.MainWindow"
