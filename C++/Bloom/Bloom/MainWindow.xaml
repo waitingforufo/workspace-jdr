@@ -44,7 +44,8 @@
     mc:Ignorable="d"
     Title="Bloom">
 
-    <StackPanel Orientation="Vertical"
+    <StackPanel x:Name="RootStackPanel"
+                Orientation="Vertical"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
 

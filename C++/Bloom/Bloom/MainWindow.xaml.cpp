@@ -5,6 +5,7 @@
 #endif
 
 #include "JDRCommonUtils/JDRWin32Util.h"
+#include "Common/Dialog/ComConfirmDlg.h"
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
@@ -40,8 +41,9 @@ namespace winrt::Bloom::implementation
         throw hresult_not_implemented();
     }
 
-    void MainWindow::myButton_Click(winrt::Windows::Foundation::IInspectable const& sender, 
-                                    winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+    fire_and_forget MainWindow::myButton_Click(
+        winrt::Windows::Foundation::IInspectable const& sender,                           
+        winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
     {
         auto jdrGlobalXaml = Bloom::Common::JDRGlobalXaml::getInstance();
         jdrGlobalXaml.Cnt(jdrGlobalXaml.Cnt() + 1);  // 修改属性，UI自动更新
@@ -62,6 +64,27 @@ namespace winrt::Bloom::implementation
         if (resObj)
         {
             auto padding = winrt::unbox_value<winrt::Microsoft::UI::Xaml::Thickness>(resObj);
+        }
+
+        bool rst = false;
+
+        // 调用全局确认对话框
+        // 注意：调用方函数必须是 co_await 异步函数，或者使用 fire_and_forget
+        bool confirmed = co_await ::Bloom::Common::Dialog::ComConfirmDlg::ShowAsync(
+            RootStackPanel().XamlRoot(),            // 传入当前页面的 XamlRoot
+            L"确认",                                // 标题
+            L"确定要进行此操作吗（数据可能无法恢复）？"  // 内容
+        );
+
+        if (confirmed)
+        {
+            // 点击 Yes
+            rst = true;
+        }
+        else
+        {
+            // 点击 No
+            rst = false;
         }
     }
 }

@@ -123,6 +123,7 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common\Dialog\ComConfirmDlg.h" />
     <ClInclude Include="Common\JDRGlobal.h" />
     <ClInclude Include="Common\JDRGlobalXaml.h" />
     <ClInclude Include="JDRCommonUtils\JDRWin32Util.h" />
@@ -151,6 +152,7 @@
     <Page Include="MainWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Common\Dialog\ComConfirmDlg.cpp" />
     <ClCompile Include="Common\JDRGlobal.cpp" />
     <ClCompile Include="Common\JDRGlobalXaml.cpp" />
     <ClCompile Include="JDRCommonUtils\JDRWin32Util.cpp" />

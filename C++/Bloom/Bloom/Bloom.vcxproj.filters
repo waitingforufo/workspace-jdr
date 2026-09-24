@@ -36,6 +36,9 @@
     <ClCompile Include="Common\JDRGlobalXaml.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="Common\Dialog\ComConfirmDlg.cpp">
+      <Filter>Common\Dialog</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -47,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="Common\JDRGlobalXaml.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Dialog\ComConfirmDlg.h">
+      <Filter>Common\Dialog</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +96,9 @@
     </Filter>
     <Filter Include="Common\Res\Styles">
       <UniqueIdentifier>{1594f55a-48a5-4c5c-a6d8-af75cbbd606a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Dialog">
+      <UniqueIdentifier>{d546036b-ab4d-442a-a90a-0a64731e66af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
