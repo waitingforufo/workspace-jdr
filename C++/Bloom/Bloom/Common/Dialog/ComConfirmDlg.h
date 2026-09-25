@@ -47,8 +47,8 @@ namespace Bloom::Common::Dialog
 		///      // 注意：调用方函数必须是 co_await 异步函数，或者使用 fire_and_forget
 		///      bool confirmed = co_await ::Bloom::Common::Dialog::ComConfirmDlg::ShowAsync(
 		///          RootStackPanel().XamlRoot(),           // 传入当前页面的 XamlRoot
-		///          L"确认",                                // 标题
-		///          L"确定要进行此操作吗（数据可能无法恢复）？"  // 内容
+		///          L"确认",                                // 标题   A:有可能会乱码
+		///          L"确定要进行此操作吗（数据可能无法恢复）？"  // 内容   A
 		///      );
 		/// 
 		///      if (confirmed)
@@ -61,7 +61,15 @@ namespace Bloom::Common::Dialog
 		///          // 点击 No
 		///          rst = false;
 		///      }
+		/// </para>
+		/// <para>
+		/// 注意： A 部分，当系统语言是日语，中文的时候，也许有可能某一个系统会出现乱码。
+		/// ■解决方法（最佳实践，强烈推荐）：
+		///   右键项目 > 属性 > C/C++ > 命令行， 在"其他选项"中添加：/utf-8
 		/// 
+		///   ※无论系统区域设置是日语，中文还是英语，编译结果完全一致。
+		///     源代码中的任何 Unicode字符（中文，日文，Emoji等）都能正确显示。
+		///     不需要每个开发者都去修改自己的系统设置
 		/// </para>
 		/// </summary>
 		/// <param name="xamlRoot">对话框页面的 XamlRoot(用于定位对话框的宿主)

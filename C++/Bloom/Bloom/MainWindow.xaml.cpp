@@ -71,9 +71,9 @@ namespace winrt::Bloom::implementation
         // 调用全局确认对话框
         // 注意：调用方函数必须是 co_await 异步函数，或者使用 fire_and_forget
         bool confirmed = co_await ::Bloom::Common::Dialog::ComConfirmDlg::ShowAsync(
-            RootStackPanel().XamlRoot(),            // 传入当前页面的 XamlRoot
-            L"确认",                                // 标题
-            L"确定要进行此操作吗（数据可能无法恢复）？"  // 内容
+            RootStackPanel().XamlRoot(),              // 传入当前页面的 XamlRoot
+            L"确认",                                  // 标题
+            L"确认要进行此操作吗（数据可能无法回复）？"    // 内容
         );
 
         if (confirmed)
