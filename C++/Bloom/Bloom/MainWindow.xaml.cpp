@@ -66,10 +66,10 @@ namespace winrt::Bloom::implementation
             auto padding = winrt::unbox_value<winrt::Microsoft::UI::Xaml::Thickness>(resObj);
         }
 
-        bool rst = false;
-
         // 调用全局确认对话框
         // 注意：调用方函数必须是 co_await 异步函数，或者使用 fire_and_forget
+        /*
+        bool rst = false;
         bool confirmed = co_await ::Bloom::Common::Dialog::ComConfirmDlg::ShowAsync(
             RootStackPanel().XamlRoot(),              // 传入当前页面的 XamlRoot
             L"确认",                                  // 标题
@@ -86,5 +86,12 @@ namespace winrt::Bloom::implementation
             // 点击 No
             rst = false;
         }
+        */
+
+        /*
+        * C++标准规定：一个函数体内必须至少包含一个 co_await, co_return 或 co_yield 语句，编译器才会将其视为携程 （coroutine）。
+        * ※ 函数内有 co_await， 末尾可以省略 co_return（隐式）， 但建议 显式写 co_return。
+        */
+        co_return;
     }
 }
