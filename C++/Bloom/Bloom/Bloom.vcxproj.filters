@@ -23,6 +23,9 @@
     <Midl Include="Common\JDRGlobalXaml.idl">
       <Filter>Common</Filter>
     </Midl>
+    <Midl Include="Common\Dialog\JDRCheckItem.idl">
+      <Filter>Common\Dialog</Filter>
+    </Midl>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -39,6 +42,9 @@
     <ClCompile Include="Common\Dialog\ComConfirmDlg.cpp">
       <Filter>Common\Dialog</Filter>
     </ClCompile>
+    <ClCompile Include="Common\Dialog\JDRCheckItem.cpp">
+      <Filter>Common\Dialog</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -52,6 +58,9 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Common\Dialog\ComConfirmDlg.h">
+      <Filter>Common\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Dialog\JDRCheckItem.h">
       <Filter>Common\Dialog</Filter>
     </ClInclude>
   </ItemGroup>
@@ -103,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
+    <Text Include="Common\Dialog\readme.txt">
+      <Filter>Common\Dialog</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />

@@ -1,0 +1,17 @@
+namespace Bloom.Common.Dialog
+{
+
+[default_interface]
+runtimeclass JDRCheckItem
+{
+	JDRCheckItem();
+
+    // CheckBox旁边显示的文字
+    String Text;
+
+    // 选中状态
+    Boolean IsChecked;
+
+}
+
+}//end namespace
