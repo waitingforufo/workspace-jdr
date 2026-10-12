@@ -1,5 +1,6 @@
 #pragma once
-//#include "pch.h"
+#include <winrt/Windows.Foundation.h>
+
 #include "Common.Dialog.JDRCheckItem.g.h"
 
 namespace winrt::Bloom::Common::Dialog::implementation

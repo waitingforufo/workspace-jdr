@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 
 #include "MainWindow.g.h"
 #include "Common/JDRGlobalXaml.h"  // 包含单例头文件

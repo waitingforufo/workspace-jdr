@@ -94,7 +94,6 @@
 * 
 */
 #pragma once
-#include "pch.h"
 #include "Common.JDRGlobalXaml.g.h"  // MIDL生成，无需路径前缀(Generated Files已在包含路径中）
 
 namespace winrt::Bloom::Common::implementation

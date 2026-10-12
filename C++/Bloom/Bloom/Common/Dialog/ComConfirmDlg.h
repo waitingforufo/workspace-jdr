@@ -1,5 +1,7 @@
 #pragma once
-#include "pch.h"
+
+// 头文件里推荐精准包含，不推荐#include "pch.h"
+#include <winrt/Windows.Foundation.h>
 
 /*
 * 全局通用确认对话框

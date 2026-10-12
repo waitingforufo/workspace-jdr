@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"  // 头文件里包含pch.h是合法的，用于支持IDE的代码提示和独立编译（推荐显式包含预编译头文件）
 
 namespace Bloom::JDRCommonUtils
 {
