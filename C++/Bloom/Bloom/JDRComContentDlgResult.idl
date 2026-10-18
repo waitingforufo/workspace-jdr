@@ -1,0 +1,19 @@
+namespace Bloom
+{
+	/// <summary>
+	/// 全局通用ContentDialog的返回值类型
+	/// </summary>
+	runtimeclass JDRComContentDlgResult
+	{
+		JDRComContentDlgResult();
+
+		// WinRT内置类型不需要import，可以直接使用
+		Microsoft.UI.Xaml.Controls.ContentDialogResult DialogResult;
+
+		/// <summary>
+		/// 一维动态数组：索引与传入的项目一致
+		/// Text:-1; CheckBox:-1/1; RadioGroup:-1/组内选中索引值(0..n-1)
+		/// </summary>
+		Windows.Foundation.Collections.IVector<Int32> Status;
+	}
+}

@@ -1,0 +1,8 @@
+namespace Bloom
+{
+    [default_interface]
+    runtimeclass JDRComContentDlgContent : Microsoft.UI.Xaml.Controls.UserControl
+    {
+        JDRComContentDlgContent();
+    }
+}
