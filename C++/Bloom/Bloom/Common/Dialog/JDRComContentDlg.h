@@ -1,6 +1,5 @@
 #pragma once
 #include "../../JDRComContentDlgTypes.h"
-
 #include "../../JDRComContentDlgResult.h"
 
 #include "winrt/Microsoft.UI.Xaml.h"
@@ -23,7 +22,7 @@ namespace Bloom::Common::Dialog
 		/// <param name="closeButtonText">关闭按钮文字</param>
 		/// <param name="xamlRoot"></param>
 		/// <returns></returns>
-		static winrt::Windows::Foundation::IAsyncOperation<winrt::Bloom::IJDRComContentDlgResult> ShowAsync(
+		static winrt::Windows::Foundation::IAsyncOperation<winrt::Bloom::JDRComContentDlgResult> ShowAsync(
 			std::wstring_view title,
 			std::wstring_view message,
 			Bloom::JDRComContentDlgArgs const& args,
