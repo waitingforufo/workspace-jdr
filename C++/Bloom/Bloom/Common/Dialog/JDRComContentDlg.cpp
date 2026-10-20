@@ -1,8 +1,9 @@
-#pragma once
 #include "pch.h"
 
 #include "JDRComContentDlg.h"
-#include "../../JDRComContentDlgContent.xaml.h"
+
+#include "JDRComContentDlgContent.g.h"
+#include "JDRComContentDlgResult.g.h"
 
 #include <atomic>
 
@@ -28,7 +29,8 @@ namespace Bloom::Common::Dialog
 		if (!s_isShowing.compare_exchange_strong(expected, true))
 		{
 			// 防重入：返回空结果(DialogResult=None, Status为空集合)
-			auto empty = winrt::make<winrt::Bloom::implementation::JDRComContentDlgResult>();
+			winrt::Bloom::JDRComContentDlgResult empty = winrt::Bloom::JDRComContentDlgResult{};
+
 			empty.DialogResult(Controls::ContentDialogResult::None);
 			empty.Status(winrt::single_threaded_vector<int32_t>());
 
@@ -37,26 +39,28 @@ namespace Bloom::Common::Dialog
 
 		try {
 
-			winrt::Bloom::JDRComContentDlgContent content;
+			winrt::Bloom::JDRComContentDlgContent contentDlgContent{};
 
-			content.Initialize(args, message);
+			contentDlgContent.Initialize(message, args);
 
-			Controls::ContentDialog dialog;
-			dialog.Title(box_value(hstring{ title }));
-			dialog.Content(content);
+			Controls::ContentDialog dialog{};
+
+			dialog.Title(winrt::box_value(winrt::hstring{ title }));
+			dialog.Content(contentDlgContent);
+
 			dialog.XamlRoot(xamlRoot);                    // WinUI 3 必须设置
 
 			if (!primaryButtonText.empty())
-				dialog.PrimaryButtonText(hstring{ primaryButtonText });
+				dialog.PrimaryButtonText(winrt::hstring{primaryButtonText});
 			if (!secondaryButtonText.empty())
-				dialog.SecondaryButtonText(hstring{ secondaryButtonText });
+				dialog.SecondaryButtonText(winrt::hstring{ secondaryButtonText });
 			if (!closeButtonText.empty())
-				dialog.CloseButtonText(hstring{ closeButtonText });
+				dialog.CloseButtonText(winrt::hstring{ closeButtonText });
 
 			dialog.DefaultButton(Controls::ContentDialogButton::Primary);
 
 			auto dialogResult = co_await dialog.ShowAsync();
-			auto result = content.CollectResult(dialogResult);
+			auto result = contentDlgContent.CollectResult(dialogResult);
 
 			s_isShowing = false;
 			co_return result;

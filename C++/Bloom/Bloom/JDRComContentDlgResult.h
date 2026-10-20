@@ -25,11 +25,6 @@ namespace winrt::Bloom::implementation
 			return m_status;
 		}
 
-		void Status(winrt::Windows::Foundation::Collections::IVector<int32_t> const& value)
-		{
-			m_status = value;
-		}
-
 	private:
 		winrt::Microsoft::UI::Xaml::Controls::ContentDialogResult
 			m_dialogResult{winrt::Microsoft::UI::Xaml::Controls::ContentDialogResult::None};

@@ -1,11 +1,15 @@
 #pragma once
 #include "../../JDRComContentDlgTypes.h"
-#include "../../JDRComContentDlgResult.h"
 
 #include "winrt/Microsoft.UI.Xaml.h"
 #include "winrt/Windows.Foundation.h"
 
 #include <string_view>
+
+namespace winrt::Bloom
+{
+	struct JDRComContentDlgResult;
+}
 
 namespace Bloom::Common::Dialog
 {

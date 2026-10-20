@@ -14,6 +14,6 @@ namespace Bloom
 		/// 一维动态数组：索引与传入的项目一致
 		/// Text:-1; CheckBox:-1/1; RadioGroup:-1/组内选中索引值(0..n-1)
 		/// </summary>
-		Windows.Foundation.Collections.IVector<Int32> Status;
+		Windows.Foundation.Collections.IVector<Int32> Status{ get; };
 	}
 }
