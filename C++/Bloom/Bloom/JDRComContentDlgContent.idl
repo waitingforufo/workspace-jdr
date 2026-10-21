@@ -1,5 +1,5 @@
 
-import "JDRComContentDlgResult.idl"
+import "JDRComContentDlgResult.idl";
 
 namespace Bloom
 {
