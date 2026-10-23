@@ -17,14 +17,13 @@
     <Page Include="Common\Res\Styles\ControlStyles.xaml">
       <Filter>Common\Res\Styles</Filter>
     </Page>
-    <Page Include="JDRComContentDlgContent.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
     <Midl Include="Common\JDRGlobalXaml.idl">
       <Filter>Common</Filter>
     </Midl>
-    <Midl Include="JDRComContentDlgResult.idl" />
+    <Midl Include="BookLibrary.idl" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -41,10 +40,8 @@
     <ClCompile Include="Common\Dialog\ComConfirmDlg.cpp">
       <Filter>Common\Dialog</Filter>
     </ClCompile>
-    <ClCompile Include="JDRComContentDlgResult.cpp" />
-    <ClCompile Include="Common\Dialog\JDRComContentDlg.cpp">
-      <Filter>Common\Dialog</Filter>
-    </ClCompile>
+    <ClCompile Include="BookLibrary.cpp" />
+    <ClCompile Include="Book.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -60,11 +57,8 @@
     <ClInclude Include="Common\Dialog\ComConfirmDlg.h">
       <Filter>Common\Dialog</Filter>
     </ClInclude>
-    <ClInclude Include="JDRComContentDlgResult.h" />
-    <ClInclude Include="JDRComContentDlgTypes.h" />
-    <ClInclude Include="Common\Dialog\JDRComContentDlg.h">
-      <Filter>Common\Dialog</Filter>
-    </ClInclude>
+    <ClInclude Include="BookLibrary.h" />
+    <ClInclude Include="Book.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
