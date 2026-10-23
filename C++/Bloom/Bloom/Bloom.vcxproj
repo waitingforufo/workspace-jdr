@@ -123,6 +123,8 @@
     <Manifest Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="BookLibrary.h" />
     <ClInclude Include="Common\Dialog\ComConfirmDlg.h" />
     <ClInclude Include="Common\JDRGlobal.h" />
     <ClInclude Include="Common\JDRGlobalXaml.h" />
@@ -152,6 +154,8 @@
     <Page Include="MainWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BookLibrary.cpp" />
     <ClCompile Include="Common\Dialog\ComConfirmDlg.cpp" />
     <ClCompile Include="Common\JDRGlobal.cpp" />
     <ClCompile Include="Common\JDRGlobalXaml.cpp" />
@@ -168,6 +172,7 @@
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Midl Include="BookLibrary.idl" />
     <Midl Include="Common\JDRGlobalXaml.idl" />
     <Midl Include="MainWindow.idl">
       <SubType>Code</SubType>

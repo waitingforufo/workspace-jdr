@@ -1,0 +1,29 @@
+namespace Bloom
+{
+
+	/// <summary>
+	/// Book类
+	/// </summary>
+	runtimeclass Book
+	{
+		Book();
+		Book(String title, String author);
+
+		String Title;
+		String Author;
+	}
+
+	runtimeclass Library
+	{
+		Library();
+		Library(String name);
+
+		String Name;
+
+		// Library的成员包含Book类型
+		Book FeaturedBook;
+		void AddBook(Book book);
+		IVector<Book> GetAllBooks();
+	}
+
+}

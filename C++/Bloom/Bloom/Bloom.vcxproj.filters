@@ -23,6 +23,7 @@
     <Midl Include="Common\JDRGlobalXaml.idl">
       <Filter>Common</Filter>
     </Midl>
+    <Midl Include="BookLibrary.idl" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -39,6 +40,8 @@
     <ClCompile Include="Common\Dialog\ComConfirmDlg.cpp">
       <Filter>Common\Dialog</Filter>
     </ClCompile>
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BookLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -54,6 +57,8 @@
     <ClInclude Include="Common\Dialog\ComConfirmDlg.h">
       <Filter>Common\Dialog</Filter>
     </ClInclude>
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="BookLibrary.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
