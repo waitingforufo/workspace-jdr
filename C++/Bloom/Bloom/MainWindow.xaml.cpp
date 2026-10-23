@@ -7,6 +7,9 @@
 #include "JDRCommonUtils/JDRWin32Util.h"
 #include "Common/Dialog/ComConfirmDlg.h"
 
+// 聚合投影头文件，包含 Bloom::Book, Bloom::Library
+#include <winrt/Bloom.h>
+
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
 
@@ -65,6 +68,34 @@ namespace winrt::Bloom::implementation
         {
             auto padding = winrt::unbox_value<winrt::Microsoft::UI::Xaml::Thickness>(resObj);
         }
+
+        // Bloom::Book, Bloom::Library投影类的测试 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        
+        // 创建Book
+        Bloom::Book book1{ L"书籍1", L"作者1" };
+        Bloom::Book book2{ L"书籍2", L"作者2" };
+
+        // 创建Library
+        Bloom::Library lib{ L"北京图书馆" };
+
+        // 设置FeaturedBook - 直接传入投影类型 Book
+        lib.FeaturedBook(book1);
+
+        // 通过方法添加Book
+        lib.AddBook(book1);
+        lib.AddBook(book2);
+
+        // 读取成员Book
+        Bloom::Book featured = lib.FeaturedBook();
+        printf("\n\n※※ Featured: %ls\n", featured.Title().c_str());
+
+        // 遍历library中的所有Book
+        for (Bloom::Book const& book : lib.GetAllBooks())
+        {
+            printf("\n\n ※※ Book: %ls - %ls\n", book.Title().c_str(), book.Author().c_str());
+        }
+
+        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
         // 调用全局确认对话框
         // 注意：调用方函数必须是 co_await 异步函数，或者使用 fire_and_forget
