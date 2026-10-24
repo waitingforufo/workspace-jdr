@@ -180,7 +180,7 @@
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Common\Dialog\readme.txt" />
+    <Text Include="Common\Dialog\readme.md" />
     <Text Include="readme.txt">
       <DeploymentContent>false</DeploymentContent>
     </Text>
