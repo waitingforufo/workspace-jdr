@@ -130,6 +130,10 @@
     <ClInclude Include="Common\JDRGlobalXaml.h" />
     <ClInclude Include="JDRComContentDlg.h" />
     <ClInclude Include="JDRComContentDlgItem.h" />
+    <ClInclude Include="JDRComContentDlgView.xaml.h">
+      <DependentUpon>JDRComContentDlgView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="JDRCommonUtils\JDRWin32Util.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
@@ -153,6 +157,9 @@
     <Page Include="Common\Res\Themes\ThemeResources.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="JDRComContentDlgView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +170,10 @@
     <ClCompile Include="Common\JDRGlobalXaml.cpp" />
     <ClCompile Include="JDRComContentDlg.cpp" />
     <ClCompile Include="JDRComContentDlgItem.cpp" />
+    <ClCompile Include="JDRComContentDlgView.xaml.cpp">
+      <DependentUpon>JDRComContentDlgView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="JDRCommonUtils\JDRWin32Util.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -179,6 +190,10 @@
     <Midl Include="BookLibrary.idl" />
     <Midl Include="Common\JDRGlobalXaml.idl" />
     <Midl Include="JDRComContentDlg.idl" />
+    <Midl Include="JDRComContentDlgView.idl">
+      <DependentUpon>JDRComContentDlgView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Midl>
     <Midl Include="MainWindow.idl">
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>

@@ -17,6 +17,9 @@
     <Page Include="Common\Res\Styles\ControlStyles.xaml">
       <Filter>Common\Res\Styles</Filter>
     </Page>
+    <Page Include="JDRComContentDlgView.xaml">
+      <Filter>JDRComContentDlg</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />

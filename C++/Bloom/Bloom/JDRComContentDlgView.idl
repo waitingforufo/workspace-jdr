@@ -1,0 +1,14 @@
+import "JDRComContentDlg.idl";
+
+namespace Bloom
+{
+    [default_interface]
+    runtimeclass JDRComContentDlgView : Microsoft.UI.Xaml.Controls.UserControl
+    {
+        JDRComContentDlgView();
+        
+        void SetMsg(String msg);
+        void SetItems(Windows.Foundation.Collections.IVector<JDRComContentDlgItem> items);
+        Windows.Foundation.Collections.IVector<Int32> GetSelection();
+    }
+}
