@@ -153,6 +153,9 @@
     <None Include="BookLibrary-readme.md">
       <Filter>BookLibrary</Filter>
     </None>
+    <None Include="JDRComContentDlg-readme.md">
+      <Filter>JDRComContentDlg</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
