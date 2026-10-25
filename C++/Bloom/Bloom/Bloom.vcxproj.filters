@@ -26,6 +26,9 @@
     <Midl Include="BookLibrary.idl">
       <Filter>BookLibrary</Filter>
     </Midl>
+    <Midl Include="JDRComContentDlg.idl">
+      <Filter>JDRComContentDlg</Filter>
+    </Midl>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
@@ -48,6 +51,12 @@
     <ClCompile Include="Book.cpp">
       <Filter>BookLibrary</Filter>
     </ClCompile>
+    <ClCompile Include="JDRComContentDlgItem.cpp">
+      <Filter>JDRComContentDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="JDRComContentDlg.cpp">
+      <Filter>JDRComContentDlg</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -68,6 +77,12 @@
     </ClInclude>
     <ClInclude Include="Book.h">
       <Filter>BookLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="JDRComContentDlgItem.h">
+      <Filter>JDRComContentDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="JDRComContentDlg.h">
+      <Filter>JDRComContentDlg</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +132,9 @@
     </Filter>
     <Filter Include="BookLibrary">
       <UniqueIdentifier>{6afa4d9f-ae19-4163-a37e-ddfda0804b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="JDRComContentDlg">
+      <UniqueIdentifier>{ca15243a-211f-43ff-a426-753466ede8b5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

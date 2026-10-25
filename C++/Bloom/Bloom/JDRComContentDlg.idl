@@ -1,0 +1,64 @@
+
+namespace Bloom
+{
+	/// <summary>
+	/// 确认对话框的可选显示项目类型
+	/// </summary>
+	enum JDRComContentDlgItemType
+	{
+		Text = 1,             // 普通文字行
+		CheckBox = 2,         // 复选框
+		RadioButtonGroup = 3  // 单选按钮组
+	};
+
+	/// <summary>
+	/// 确认对话框的可选显示项目
+	/// 
+	/// struct必须声明在被引用的runtimeclass之前。
+	/// MIDL的struct不支持构造函数和默认值，字段都要由调用方显示赋值
+	/// </summary>
+	struct JDRComContentDlgItemOpt
+	{
+		String Text;        // 显示的文字
+		Boolean IsChecked;  // 默认选中状态
+	};
+
+	/// <summary>
+	/// 确认对话框的显示项目
+	/// </summary>
+	runtimeclass JDRComContentDlgItem
+	{
+		JDRComContentDlgItem();
+
+		// 项目类型
+		JDRComContentDlgItemType Type;
+
+		// Type=Text:             要显示的单行信息内容; 
+		// Type=CheckBox:         忽略; 
+		// Type=RadioButtonGroup: 单选组的标题
+		String Text;
+
+		// Type=Text:             忽略
+		// Type=CheckBox:         仅有一个元素，指定单行CheckBox的标题与默认选中状态
+		// Type=RadioButtonGroup: 多个元素，每个元素指定单行RadioButton的标题与默认选中状态
+		Windows.Foundation.Collections.IVector<JDRComContentDlgItemOpt> List;
+	};
+
+	/// <summary>
+	/// 通用确认框的全局通用单例类
+	/// 
+	/// 纯静态runtimeclass，没有实例成员，只有静态函数（不需要实例化）
+	/// </summary>
+	runtimeclass JDRComContentDlg
+	{
+		// 显示通用的确认对话框
+		static Windows.Foundation.IAsyncOperation<Windows.Foundation.Collections.IVector<Int32> >
+			ShowAsync(String title,
+				      String message,
+				      Windows.Foundation.Collections.IVector<JDRComContentDlgItem> items,
+				      String primaryButtonText,
+				      String secondaryButtonText,
+				      String closeButtonText);
+	};
+
+}//end namespace
