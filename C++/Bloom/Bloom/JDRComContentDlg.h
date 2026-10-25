@@ -22,6 +22,7 @@ namespace winrt::Bloom::implementation
 		/// <param name="primaryButtonText">主按钮显示文字</param>
 		/// <param name="secondaryButtonText">次按钮显示文字</param>
 		/// <param name="closeButtonText">关闭按钮显示文字</param>
+		/// <param name="parentXamlRoot"></param>
 		/// <returns></returns>
 		static winrt::Windows::Foundation::IAsyncOperation<
 			winrt::Windows::Foundation::Collections::IVector<int32_t> >
@@ -30,7 +31,8 @@ namespace winrt::Bloom::implementation
 				      winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItem> items,
 				      winrt::hstring const& primaryButtonText = winrt::hstring{L"YES"},
 				      winrt::hstring const& secondaryButtonText = winrt::hstring{L"NO"},
-				      winrt::hstring const& closeButtonText = winrt::hstring{L"CANCEL"});
+				      winrt::hstring const& closeButtonText = winrt::hstring{L"CANCEL"},
+				      winrt::Microsoft::UI::Xaml::XamlRoot const& parentXamlRoot = winrt::Microsoft::UI::Xaml::Window::Current().Content().XamlRoot());
 	};
 
 }//end namespace

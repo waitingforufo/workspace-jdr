@@ -58,7 +58,8 @@ namespace Bloom
 				      Windows.Foundation.Collections.IVector<JDRComContentDlgItem> items,
 				      String primaryButtonText,
 				      String secondaryButtonText,
-				      String closeButtonText);
+				      String closeButtonText,
+				      Microsoft.UI.Xaml.XamlRoot parentXamlRoot);
 	};
 
 }//end namespace
