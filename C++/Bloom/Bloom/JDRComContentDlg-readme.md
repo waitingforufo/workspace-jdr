@@ -71,8 +71,12 @@ fire_and_forget MainWindow::myButton_Click(
         tmpItem.List(tmpOptList);
         items.Append(tmpItem);
 
-        // XamlRoot取得
-        auto xamlRoot = winrt::Microsoft::UI::Xaml::Window::Current().Content().XamlRoot();
+        // XamlRoot取得 ※Window::Current()是有名不靠谱API
+        //auto xamlRoot = winrt::Microsoft::UI::Xaml::Window::Current().Content().XamlRoot();
+        //Window::Current().Content().XamlRoot()
+        // 用sender取，不经过Window::Current()
+        auto fe = sender.as<winrt::Microsoft::UI::Xaml::FrameworkElement>();
+        auto xamlRoot = fe.XamlRoot();
 
         // 5.调用确认对话框
         auto result = co_await Bloom::JDRComContentDlg::ShowAsync(L"设置",

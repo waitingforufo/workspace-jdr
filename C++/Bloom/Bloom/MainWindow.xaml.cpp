@@ -189,12 +189,16 @@ namespace winrt::Bloom::implementation
         tmpItem.OptList(tmpOptList);
         items.Append(tmpItem);
 
-        // XamlRoot取得
-        auto xamlRoot = winrt::Microsoft::UI::Xaml::Window::Current().Content().XamlRoot();
+        // XamlRoot取得 ※Window::Current()是有名不靠谱API
+        //auto xamlRoot = winrt::Microsoft::UI::Xaml::Window::Current().Content().XamlRoot();
+        //Window::Current().Content().XamlRoot()
+        // 用sender取，不经过Window::Current()
+        auto fe = sender.as<winrt::Microsoft::UI::Xaml::FrameworkElement>();
+        auto xamlRoot = fe.XamlRoot();
 
         // 5.调用确认对话框
         auto result = co_await Bloom::JDRComContentDlg::ShowAsync(L"设置",
-                                                                  L"请确认以下选项：",
+                                                                  L"这是全局单例确认对话框演示。下面是动态内容。\n====================================",
                                                                   items,
                                                                   L"确定",
                                                                   L"取消",
