@@ -41,7 +41,7 @@ namespace Bloom
 		// Type=Text:             忽略
 		// Type=CheckBox:         仅有一个元素，指定单行CheckBox的标题与默认选中状态
 		// Type=RadioButtonGroup: 多个元素，每个元素指定单行RadioButton的标题与默认选中状态
-		Windows.Foundation.Collections.IVector<JDRComContentDlgItemOpt> List;
+		Windows.Foundation.Collections.IVector<JDRComContentDlgItemOpt> OptList;
 	};
 
 	/// <summary>

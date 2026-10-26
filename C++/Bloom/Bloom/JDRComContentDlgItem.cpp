@@ -11,7 +11,7 @@ namespace winrt::Bloom::implementation
 		//InitlizeComponent();
 
 		// IVector属性必须初始化，否则默认是nullptr
-		m_list = winrt::single_threaded_vector<Bloom::JDRComContentDlgItemOpt>();
+		m_optList = winrt::single_threaded_vector<Bloom::JDRComContentDlgItemOpt>();
 	}
 
 	Bloom::JDRComContentDlgItemType JDRComContentDlgItem::Type()
@@ -34,14 +34,14 @@ namespace winrt::Bloom::implementation
 		m_text = value;
 	}
 
-	winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> JDRComContentDlgItem::List()
+	winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> JDRComContentDlgItem::OptList()
 	{
-		return m_list;
+		return m_optList;
 	}
 
-	void JDRComContentDlgItem::List(winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> const& value)
+	void JDRComContentDlgItem::OptList(winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> const& value)
 	{
-		m_list = value;
+		m_optList = value;
 	}
 
 }//end namespace

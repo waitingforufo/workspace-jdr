@@ -24,13 +24,13 @@ namespace winrt::Bloom::implementation
 		// Type=Text:             忽略
 		// Type=CheckBox:         仅有一个元素，指定单行CheckBox的标题与默认选中状态
 		// Type=RadioButtonGroup: 多个元素，每个元素指定单行RadioButton的标题与默认选中状态
-		winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> List();
-		void List(winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> const& value);
+		winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> OptList();
+		void OptList(winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> const& value);
 
 	private:
 		Bloom::JDRComContentDlgItemType m_type{ Bloom::JDRComContentDlgItemType::Text };
-		winrt::hstring m_text;
-		winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> m_list{nullptr};
+		winrt::hstring m_text{ L"" };
+		winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItemOpt> m_optList{nullptr};
 	};
 }//end namespace
 

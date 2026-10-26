@@ -147,7 +147,7 @@ namespace winrt::Bloom::implementation
         auto tmpOptList = winrt::single_threaded_vector<Bloom::JDRComContentDlgItemOpt>();
         tmpOptList.Append(tmpOpt);
 
-        tmpItem.List(tmpOptList);
+        tmpItem.OptList(tmpOptList);
         items.Append(tmpItem);
 
         // 3.一个RadioButton组（3个选项，默认选中第一个(index=0))
@@ -172,7 +172,7 @@ namespace winrt::Bloom::implementation
         tmpOpt.IsChecked = false;
         tmpOptList.Append(tmpOpt);
 
-        tmpItem.List(tmpOptList);
+        tmpItem.OptList(tmpOptList);
         items.Append(tmpItem);
 
         // 4.第二个CheckBox（默认不选中）
@@ -186,7 +186,7 @@ namespace winrt::Bloom::implementation
         tmpOptList = winrt::single_threaded_vector<Bloom::JDRComContentDlgItemOpt>();
         tmpOptList.Append(tmpOpt);
 
-        tmpItem.List(tmpOptList);
+        tmpItem.OptList(tmpOptList);
         items.Append(tmpItem);
 
         // XamlRoot取得

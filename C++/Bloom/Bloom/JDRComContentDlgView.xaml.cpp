@@ -45,15 +45,15 @@ namespace winrt::Bloom::implementation
 			case Bloom::JDRComContentDlgItemType::CheckBox:  // 复选框
 			{
 				// 如果复选框数据不存在，什么也不生成
-				if (item.List() && item.List().Size() == 0)
+				if (item.OptList() && item.OptList().Size() == 0)
 					break;
 
 				winrt::Microsoft::UI::Xaml::Controls::CheckBox cb;
 
 				// 从列表里选择第一个元素，用来生成CheckBox
-				//if (item.List() && item.List().Size() > 0)
+				//if (item.OptList() && item.OptList().Size() > 0)
 				//{
-					auto tmp = item.List().GetAt(0);
+					auto tmp = item.OptList().GetAt(0);
 					cb.Content(winrt::box_value(tmp.Text));  // struct成员直接用点访问，没有括号
 					cb.IsChecked(tmp.IsChecked);
 				//}
@@ -65,7 +65,7 @@ namespace winrt::Bloom::implementation
 			case Bloom::JDRComContentDlgItemType::RadioButtonGroup:  // 单选钮组
 			{
 				// 如果单选钮组数据不存在，什么也不生成
-				if (item.List() && item.List().Size() == 0)
+				if (item.OptList() && item.OptList().Size() == 0)
 					break;
 
 				winrt::Microsoft::UI::Xaml::Controls::StackPanel panel;
@@ -82,7 +82,7 @@ namespace winrt::Bloom::implementation
 				// 每组RadioButton用唯一GroupName：保证组内互斥，组与组之间互不影响
 				winrt::hstring groupName = L"JDRRadioGroup" + winrt::to_hstring(groupIndex++);
 
-				for (auto const& opt : item.List())
+				for (auto const& opt : item.OptList())
 				{
 					winrt::Microsoft::UI::Xaml::Controls::RadioButton rb;
 					rb.Content(winrt::box_value(opt.Text));
