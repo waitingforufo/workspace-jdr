@@ -15,6 +15,7 @@ namespace winrt::Bloom::implementation
 	{
 		/// <summary>
 		/// 显示通用的确认对话框
+		/// 
 		/// </summary>
 		/// <param name="title">标题</param>
 		/// <param name="message">确认信息</param>
@@ -29,10 +30,10 @@ namespace winrt::Bloom::implementation
 			ShowAsync(winrt::hstring const& title,
 				      winrt::hstring const& message,
 				      winrt::Windows::Foundation::Collections::IVector<Bloom::JDRComContentDlgItem> items,
-				      winrt::hstring const& primaryButtonText = winrt::hstring{L"YES"},
-				      winrt::hstring const& secondaryButtonText = winrt::hstring{L"NO"},
-				      winrt::hstring const& closeButtonText = winrt::hstring{L"CANCEL"},
-				      winrt::Microsoft::UI::Xaml::XamlRoot const& parentXamlRoot = winrt::Microsoft::UI::Xaml::Window::Current().Content().XamlRoot());
+				      winrt::hstring const& primaryButtonText,
+				      winrt::hstring const& secondaryButtonText,
+				      winrt::hstring const& closeButtonText,
+				      winrt::Microsoft::UI::Xaml::XamlRoot const& parentXamlRoot);
 	};
 
 }//end namespace
