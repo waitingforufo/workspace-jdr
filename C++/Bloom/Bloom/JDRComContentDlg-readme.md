@@ -75,6 +75,7 @@ fire_and_forget MainWindow::myButton_Click(
         //auto xamlRoot = winrt::Microsoft::UI::Xaml::Window::Current().Content().XamlRoot();
         //Window::Current().Content().XamlRoot()
         // 用sender取，不经过Window::Current()
+        // 如果按钮有 x:Name，更省事：myButton().XamlRoot();
         auto fe = sender.as<winrt::Microsoft::UI::Xaml::FrameworkElement>();
         auto xamlRoot = fe.XamlRoot();
 
