@@ -104,17 +104,38 @@
                    FontSize="24" />
 
         <Button x:Name="myButton"
-                Content="Increment"
-                Click="myButton_Click" />
-        
+                Click="myButton_Click"
+                Background="Transparent"
+                BorderThickness="1">
+
+            <StackPanel Orientation="Horizontal" Spacing="6">
+            
+                <Image Source="/Assets/img/img001.png"
+                   Width="136"
+                   Height="57" />
+                
+                <TextBlock Text="Increment" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
         <!-- APP级别资源使用 -->
         <TextBlock Text="BloomTitleTextBlockStyle test"
                    Style="{StaticResource BloomTitleTextBlockStyle}" />
         <TextBlock Text="全局资源来自 App.xaml 合并字典 BloomBodyTextBlockStyle"
                    Style="{StaticResource BloomBodyTextBlockStyle}" />
-        <Button Content="确定 - BloomPrimaryButtonStyle"
-                Style="{StaticResource BloomPrimaryButtonStyle}" />
-        
+        <Button 
+                Style="{StaticResource BloomPrimaryButtonStyle}" >
+
+            <StackPanel Orientation="Vertical" Spacing="6">
+
+                <Image Source="/Assets/img/img001.png"
+                       Width="136"
+                       Height="57" />
+
+                <TextBlock Text="确定 - BloomPrimaryButtonStyle" HorizontalAlignment="Center" />
+            </StackPanel>
+        </Button>
+
         <!-- 本窗口级别资源使用 -->
         <TextBlock Text="TextBlock - MainWindowTitleStyle" 
                    Style="{StaticResource MainWindowTitleStyle}" />

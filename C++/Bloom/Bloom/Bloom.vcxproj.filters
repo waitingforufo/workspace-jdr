@@ -110,6 +110,9 @@
     <Image Include="Assets\LockScreenLogo.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="Assets\img\img001.png">
+      <Filter>Assets\img</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Assets">
@@ -138,6 +141,9 @@
     </Filter>
     <Filter Include="JDRComContentDlg">
       <UniqueIdentifier>{ca15243a-211f-43ff-a426-753466ede8b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\img">
+      <UniqueIdentifier>{aa8a29fb-2dcb-4656-b32f-9bbd89bf2026}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
