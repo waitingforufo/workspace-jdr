@@ -1,0 +1,8 @@
+namespace Bloom
+{
+    [default_interface]
+    runtimeclass JDRDemoWindow : Microsoft.UI.Xaml.Window
+    {
+        JDRDemoWindow();
+    }
+}

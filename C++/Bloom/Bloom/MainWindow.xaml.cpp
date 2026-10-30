@@ -216,3 +216,11 @@ namespace winrt::Bloom::implementation
         co_return;
     }
 }
+
+void winrt::Bloom::implementation::MainWindow::Button_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
+{
+    winrt::Bloom::JDRDemoWindow demoWindow{ nullptr };
+    demoWindow = winrt::Bloom::JDRDemoWindow();
+
+    demoWindow.Activate();
+}

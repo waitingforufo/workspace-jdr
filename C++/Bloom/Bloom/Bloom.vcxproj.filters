@@ -20,6 +20,9 @@
     <Page Include="JDRComContentDlgView.xaml">
       <Filter>JDRComContentDlg</Filter>
     </Page>
+    <Page Include="JDRDemoWindow.xaml">
+      <Filter>Demo</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
@@ -144,6 +147,9 @@
     </Filter>
     <Filter Include="Assets\img">
       <UniqueIdentifier>{aa8a29fb-2dcb-4656-b32f-9bbd89bf2026}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demo">
+      <UniqueIdentifier>{c0eba4f4-c861-409e-9ca4-c0e3a06bdc8c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

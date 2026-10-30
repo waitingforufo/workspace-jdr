@@ -151,7 +151,8 @@
                            Style="{StaticResource MainWindowBodyStyle}" />
 
                 <Button Content="局部按钮 - MainWindowPrimaryButtonStyle"
-                        Style="{StaticResource MainWindowPrimaryButtonStyle}" />
+                        Style="{StaticResource MainWindowPrimaryButtonStyle}"
+                        Click="Button_Click"/>
             </StackPanel>
         </Border>
     </StackPanel>
