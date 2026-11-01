@@ -249,6 +249,7 @@
       <SubType>
       </SubType>
     </None>
+    <None Include="JDRDemoWindows.readme.md" />
     <None Include="MainWindow.xaml.JDRDEMO" />
     <None Include="packages.config" />
   </ItemGroup>

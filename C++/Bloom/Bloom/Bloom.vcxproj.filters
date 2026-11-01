@@ -168,6 +168,9 @@
     <None Include="JDRComContentDlg-readme.md">
       <Filter>JDRComContentDlg</Filter>
     </None>
+    <None Include="JDRDemoWindows.readme.md">
+      <Filter>Demo</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
