@@ -135,6 +135,10 @@
       <SubType>Code</SubType>
     </ClInclude>
     <ClInclude Include="JDRCommonUtils\JDRWin32Util.h" />
+    <ClInclude Include="JDRDemoUC.xaml.h">
+      <DependentUpon>JDRDemoUC.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClInclude>
     <ClInclude Include="JDRDemoWindow.xaml.h">
       <DependentUpon>JDRDemoWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -164,6 +168,9 @@
     <Page Include="JDRComContentDlgView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="JDRDemoUC.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="JDRDemoWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -182,6 +189,10 @@
       <SubType>Code</SubType>
     </ClCompile>
     <ClCompile Include="JDRCommonUtils\JDRWin32Util.cpp" />
+    <ClCompile Include="JDRDemoUC.xaml.cpp">
+      <DependentUpon>JDRDemoUC.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </ClCompile>
     <ClCompile Include="JDRDemoWindow.xaml.cpp">
       <DependentUpon>JDRDemoWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -203,6 +214,10 @@
     <Midl Include="JDRComContentDlg.idl" />
     <Midl Include="JDRComContentDlgView.idl">
       <DependentUpon>JDRComContentDlgView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Midl>
+    <Midl Include="JDRDemoUC.idl">
+      <DependentUpon>JDRDemoUC.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
     <Midl Include="JDRDemoWindow.idl">
@@ -249,6 +264,7 @@
       <SubType>
       </SubType>
     </None>
+    <None Include="JDRDemoUC.md" />
     <None Include="JDRDemoWindows.readme.md" />
     <None Include="MainWindow.xaml.JDRDEMO" />
     <None Include="packages.config" />

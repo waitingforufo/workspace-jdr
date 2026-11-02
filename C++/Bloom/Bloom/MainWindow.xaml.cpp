@@ -23,6 +23,8 @@ namespace winrt::Bloom::implementation
         InitializeComponent();  // 初始化XAML控件
 
         ::Bloom::JDRCommonUtils::JDRWin32Util::SetStartupPlacement( *this, 240, 160, 600, 400);
+
+        CreateJDRDemoUCs(3);
     }
 
     /// <summary>
@@ -42,6 +44,19 @@ namespace winrt::Bloom::implementation
     void MainWindow::MyProperty(int32_t /* value */)
     {
         throw hresult_not_implemented();
+    }
+
+    void MainWindow::CreateJDRDemoUCs(int32_t count)
+    {
+        // 清空已有子元素（防止重复调用造成叠加）
+        UcContainer().Children().Clear();
+
+        for (int32_t i = 0; i < count; i++)
+        {
+            Bloom::JDRDemoUC uc;
+            uc.SetInstanceId(i);
+            UcContainer().Children().Append(uc);
+        }//end for
     }
 
     fire_and_forget MainWindow::myButton_Click(

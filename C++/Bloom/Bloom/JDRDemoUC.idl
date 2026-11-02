@@ -1,0 +1,10 @@
+namespace Bloom
+{
+    [default_interface]
+    runtimeclass JDRDemoUC : Microsoft.UI.Xaml.Controls.UserControl
+    {
+        JDRDemoUC();
+
+        void SetInstanceId(Int32 id);
+    }
+}

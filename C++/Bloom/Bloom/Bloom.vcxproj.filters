@@ -23,6 +23,9 @@
     <Page Include="JDRDemoWindow.xaml">
       <Filter>Demo</Filter>
     </Page>
+    <Page Include="JDRDemoUC.xaml">
+      <Filter>UserControl</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="MainWindow.idl" />
@@ -151,6 +154,9 @@
     <Filter Include="Demo">
       <UniqueIdentifier>{c0eba4f4-c861-409e-9ca4-c0e3a06bdc8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UserControl">
+      <UniqueIdentifier>{c71609f9-b98a-4671-b84b-7d2416e976f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
@@ -170,6 +176,9 @@
     </None>
     <None Include="JDRDemoWindows.readme.md">
       <Filter>Demo</Filter>
+    </None>
+    <None Include="JDRDemoUC.md">
+      <Filter>UserControl</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
