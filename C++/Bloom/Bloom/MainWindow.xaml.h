@@ -21,6 +21,8 @@ namespace winrt::Bloom::implementation
         int32_t MyProperty();
         void MyProperty(int32_t value);
 
+        void CreateJDRDemoUCs(int32_t count);
+
         /// <summary>
         /// ※ fire_and_forget 用于事件处理程序中的异步操作
         /// 
@@ -29,6 +31,7 @@ namespace winrt::Bloom::implementation
         /// <param name="e"></param>
         /// <returns></returns>
         fire_and_forget myButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
+        void Button_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
     };
 }
 

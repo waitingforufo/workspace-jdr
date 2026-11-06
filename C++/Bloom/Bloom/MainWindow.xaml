@@ -151,8 +151,19 @@
                            Style="{StaticResource MainWindowBodyStyle}" />
 
                 <Button Content="局部按钮 - MainWindowPrimaryButtonStyle"
-                        Style="{StaticResource MainWindowPrimaryButtonStyle}" />
+                        Style="{StaticResource MainWindowPrimaryButtonStyle}"
+                        Click="Button_Click"/>
             </StackPanel>
         </Border>
+        
+        <!-- Bloom.JDRDemoUC的放置 -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel x:Name="UcContainer" Padding="20" Spacing="6">
+                <!-- 静态嵌入3个实例演示-->
+                <local:JDRDemoUC />
+                <local:JDRDemoUC />
+                <local:JDRDemoUC />
+            </StackPanel>
+        </ScrollViewer>
     </StackPanel>
 </Window>
