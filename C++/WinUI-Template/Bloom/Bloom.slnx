@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Bloom/Bloom.vcxproj" Id="1878baf0-0376-4d43-89d2-b7bc939e4885">
+    <Deploy />
+  </Project>
+</Solution>
