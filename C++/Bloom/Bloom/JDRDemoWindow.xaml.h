@@ -60,7 +60,13 @@ namespace winrt::Bloom::implementation
         winrt::Microsoft::Graphics::Canvas::CanvasBitmap m_bitmap{ nullptr };
 
         // 颜色矩阵效果（复用同一个实例，就修改矩阵）
-        winrt::Microsoft::Graphics::Canvas::Effects::ColorMatrixEffect m_colorEffect{ nullptr };
+        //winrt::Microsoft::Graphics::Canvas::Effects::ColorMatrixEffect m_colorEffect{ nullptr };
+        winrt::Microsoft::Graphics::Canvas::Effects::Matrix5x4 m_matrix{
+            1,0,0,0,0,
+            0,1,0,0,0,
+            0,0,1,0,0,
+            0,0,0,1,0
+        };
 
         // 状态
         float m_scale{ 1.0f };

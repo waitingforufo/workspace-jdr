@@ -2,7 +2,7 @@
 #include "JDRDemoWindow.xaml.h"
 #if __has_include("JDRDemoWindow.g.cpp")
 #include "JDRDemoWindow.g.cpp"
-#endif
+#endif <algorithim>  // std::min, std::max
 
 #include <winrt/Microsoft.UI.Windowing.h>
 #include <winrt/Microsoft.Windows.Storage.h>
@@ -19,6 +19,7 @@
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
+using namespace std;
 namespace winrt::Bloom::implementation
 {
 
@@ -43,13 +44,12 @@ namespace winrt::Bloom::implementation
 		}
 
 		// 初始化 ColorMatrixEffect 为单位矩阵（原色）
-		m_colorEffect = winrt::Microsoft::Graphics::Canvas::Effects::ColorMatrixEffect();
-		m_colorEffect.ColorMatrix({
+		m_matrix = {
 			1, 0, 0, 0, 0,
 			0, 1, 0, 0, 0,
 			0, 0, 1, 0, 0,
 			0, 0, 0, 1, 0
-		});
+		};
 
 		//
 		ScaleSlider().Value( 1.0 );
@@ -98,22 +98,34 @@ namespace winrt::Bloom::implementation
 
 		auto ds = args.DrawingSession();
 
-		// 缩放效果
+		// 适配缩放
+		float fitScale = (std::min)(
+			static_cast<float>(sender.Size().Width) / static_cast<float>(m_bitmap.Size().Width),
+			static_cast<float>(sender.Size().Height) / static_cast<float>(m_bitmap.Size().Height)
+		);
+		float effectiveScale = m_scale * fitScale;
+
+		// 局部效果器，生命周期完全在 Draw 内
 		winrt::Microsoft::Graphics::Canvas::Effects::ScaleEffect scaleEffect;
 		scaleEffect.Source(m_bitmap);
-		scaleEffect.Scale( winrt::Windows::Foundation::Numerics::float2(m_scale, m_scale));
+		scaleEffect.Scale( winrt::Windows::Foundation::Numerics::float2(effectiveScale, effectiveScale));
 
 		// 颜色效果，以缩放后的输入为输出
-		m_colorEffect.Source(scaleEffect);
+		winrt::Microsoft::Graphics::Canvas::Effects::ColorMatrixEffect colorEffect;
+		colorEffect.Source(scaleEffect);
+		colorEffect.Source(m_bitmap);
 
-		// 计算居中偏移
-		float scaleWidth = static_cast<float>(m_bitmap.Size().Width) * m_scale;
-		float scaleHeight = static_cast<float>(m_bitmap.Size().Height) * m_scale;
-		float offsetX = (static_cast<float>(sender.Size().Width) - scaleWidth) / 2.0f;
-		float offsetY = (static_cast<float>(sender.Size().Height) - scaleHeight) / 2.0f;
+		// 计算居中偏移(现在必为非负）
+		float sw = static_cast<float>(m_bitmap.Size().Width) * effectiveScale;
+		float sh = static_cast<float>(m_bitmap.Size().Height) * effectiveScale;
+		float offsetX = (static_cast<float>(sender.Size().Width) - sw) / 2.0f;
+		float offsetY = (static_cast<float>(sender.Size().Height) - sh) / 2.0f;
 
 		// 绘制最终效果
-		ds.DrawImage(m_colorEffect, offsetX, offsetY);
+		ds.DrawImage(colorEffect, offsetX, offsetY);
+		//ds.DrawImage(m_bitmap, offsetX, offsetY);
+		//ds.DrawImage(m_bitmap, 0, 0);
+		
 		//ds.DrawImage(m_bitmap);
 
 	}
@@ -151,30 +163,30 @@ namespace winrt::Bloom::implementation
 		switch (m_colorMode)
 		{
 		case 0:  // 原色（单位矩阵)
-			m_colorEffect.ColorMatrix({
+			m_matrix = {
 				1, 0, 0, 0, 0,
 				0, 1, 0, 0, 0,
 				0, 0, 1, 0, 0,
 				0, 0, 0, 1, 0
-			});
+			};
 			break;
 
 		case 1:  // 灰度（RGB三个输出通道都取亮度加权和）
-			m_colorEffect.ColorMatrix({
+			m_matrix = {
 				0.299f, 0.587f, 0.114f, 0, 0,
 				0.299f, 0.587f, 0.114f, 0, 0,
 				0.299f, 0.587f, 0.114f, 0, 0,
 				0,      0,      0,      1, 0
-			});
+			};
 			break;
 
 		case 2:  // 红色调（增强红色通道，削弱蓝色通道）
-			m_colorEffect.ColorMatrix({
+			m_matrix = {
 				1.5f, 0,    0,    0, 0,
 				0,    0.8f, 0,    0, 0,
 				0,    0,    0.8f, 0, 0,
 				0,    0,    0,    1, 0
-			});
+			};
 			break;
 		}//end switch
 
