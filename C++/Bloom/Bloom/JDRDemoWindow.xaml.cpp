@@ -43,14 +43,6 @@ namespace winrt::Bloom::implementation
 			appWin.Resize({ 800,600 });
 		}
 
-		// 初始化 ColorMatrixEffect 为单位矩阵（原色）
-		m_matrix = {
-			1, 0, 0, 0, 0,
-			0, 1, 0, 0, 0,
-			0, 0, 1, 0, 0,
-			0, 0, 0, 1, 0
-		};
-
 		//
 		ScaleSlider().Value( 1.0 );
 		ScaleText().Text(L"1.0x");
@@ -96,8 +88,6 @@ namespace winrt::Bloom::implementation
 	{
 		if (!m_bitmap) return;
 
-		auto ds = args.DrawingSession();
-
 		// 适配缩放
 		float fitScale = (std::min)(
 			static_cast<float>(sender.Size().Width) / static_cast<float>(m_bitmap.Size().Width),
@@ -113,7 +103,7 @@ namespace winrt::Bloom::implementation
 		// 颜色效果，以缩放后的输入为输出
 		winrt::Microsoft::Graphics::Canvas::Effects::ColorMatrixEffect colorEffect;
 		colorEffect.Source(scaleEffect);
-		colorEffect.Source(m_bitmap);
+		colorEffect.ColorMatrix(m_matrix);
 
 		// 计算居中偏移(现在必为非负）
 		float sw = static_cast<float>(m_bitmap.Size().Width) * effectiveScale;
@@ -121,12 +111,11 @@ namespace winrt::Bloom::implementation
 		float offsetX = (static_cast<float>(sender.Size().Width) - sw) / 2.0f;
 		float offsetY = (static_cast<float>(sender.Size().Height) - sh) / 2.0f;
 
+		auto ds = args.DrawingSession();
+
 		// 绘制最终效果
 		ds.DrawImage(colorEffect, offsetX, offsetY);
 		//ds.DrawImage(m_bitmap, offsetX, offsetY);
-		//ds.DrawImage(m_bitmap, 0, 0);
-		
-		//ds.DrawImage(m_bitmap);
 
 	}
 
@@ -164,28 +153,31 @@ namespace winrt::Bloom::implementation
 		{
 		case 0:  // 原色（单位矩阵)
 			m_matrix = {
-				1, 0, 0, 0, 0,
-				0, 1, 0, 0, 0,
-				0, 0, 1, 0, 0,
-				0, 0, 0, 1, 0
+				1, 0, 0, 0,
+				0, 1, 0, 0,
+				0, 0, 1, 0,
+				0, 0, 0, 1,
+				0, 0, 0, 0
 			};
 			break;
 
-		case 1:  // 灰度（RGB三个输出通道都取亮度加权和）
+		case 1:  // 灰度（RGB三个输出通道都取亮度加权和）R'=G'=B'= 0.299R + 0.587G + 0.114B,  AI' = A
 			m_matrix = {
-				0.299f, 0.587f, 0.114f, 0, 0,
-				0.299f, 0.587f, 0.114f, 0, 0,
-				0.299f, 0.587f, 0.114f, 0, 0,
-				0,      0,      0,      1, 0
+				0.299f, 0.587f, 0.114f, 0,
+				0.299f, 0.587f, 0.114f, 0,
+				0.299f, 0.587f, 0.114f, 0,
+				0,      0,      0,      1,
+				0,      0,      0,      0
 			};
 			break;
 
-		case 2:  // 红色调（增强红色通道，削弱蓝色通道）
+		case 2:  // 红色调（增强红色通道，削弱蓝色通道）R'=1.5R, G'=0.8G, B'=9.8Ba
 			m_matrix = {
-				1.5f, 0,    0,    0, 0,
-				0,    0.8f, 0,    0, 0,
-				0,    0,    0.8f, 0, 0,
-				0,    0,    0,    1, 0
+				1.5f, 0,    0,    0,
+				0,    0.8f, 0,    0,
+				0,    0,    0.8f, 0,
+				0,    0,    0,    1,
+				0,    0,    0,    0
 			};
 			break;
 		}//end switch

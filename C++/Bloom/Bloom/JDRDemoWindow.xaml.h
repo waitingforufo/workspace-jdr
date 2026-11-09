@@ -62,10 +62,16 @@ namespace winrt::Bloom::implementation
         // 颜色矩阵效果（复用同一个实例，就修改矩阵）
         //winrt::Microsoft::Graphics::Canvas::Effects::ColorMatrixEffect m_colorEffect{ nullptr };
         winrt::Microsoft::Graphics::Canvas::Effects::Matrix5x4 m_matrix{
-            1,0,0,0,0,
-            0,1,0,0,0,
-            0,0,1,0,0,
-            0,0,0,1,0
+            // M11 M12 M13 M14 -> R 输出：R/G/B/A系数
+            1,0,0,0,
+            // M21 M22 M23 M24 -> G 输出
+            0,1,0,0,
+            // M31 M32 M33 M34 -> B 输出
+            0,0,1,0,
+            // M41 M42 M43 M44 -> A 输出
+            0,0,0,1,
+            // M51 M52 M53 M54 -> 偏移量
+            0,0,0,0
         };
 
         // 状态
