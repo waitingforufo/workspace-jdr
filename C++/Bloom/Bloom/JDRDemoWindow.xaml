@@ -10,14 +10,14 @@
     mc:Ignorable="d"
     Title="JDRDemoWindow">
 
-    <Grid Padding="40">
+    <Grid Padding="1">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" 
-                    Spacing="16" 
+                    Spacing="2" 
                     Padding="2"
                     Background="Gray">
 
